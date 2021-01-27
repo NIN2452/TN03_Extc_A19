@@ -3,13 +3,18 @@
   <head>
       </head>
 
-  <body bgcolor="lightblue">
+  <body>
+    <h1 style="background-color:lightgrey"><span style="text-align: left; color: blue">Logo</span>
+    <input align="right" type="button" name="Sign Up"  value="Sign Up" style="display: inline-block;vertical-align: middle;float: right;margin-top: 8px; margin-right: 10px" />
+    </h1>
     <h1 align="center">Login Page</h1>
-    <table align="center">
+    <table align="center" cellpadding="10px">
         <tbody>
-            <tr><td>User Name</td><td><input id="username" type="text"  /></td></tr>
-            <tr><td>Password</td><td><input type="password" /></td></tr>
-            <tr><td><input type="button" onclick="validate()" value="Login"/></td></tr>
+            <tr><td style="background-color: blue; text-align: center;color: white">Email</td><td><input id="username" type="text"  /></td></tr>
+            <tr><td style="background-color: blue; text-align: center; color: white">Password</td><td><input type="password" /></td></tr>
+            <tr><td style="text-align: right;"><input type="button" onclick="validate()" value="Login"/></td><td style="text-align: center;"><input type="button" value="Forgot Password"></td>
+            </tr>
+            <tr><td style="text-align: center;" colspan="2"><a href="#" >New User? Sign Up above</a></td></tr>
         </tbody>
     </table>
     <script type="text/javascript">
@@ -19,7 +24,7 @@
             {
                 alert("yoshaa")
             }
-	    else{alert("nay")}
+	        else{alert("nay")} 
 
         }
     </script>
