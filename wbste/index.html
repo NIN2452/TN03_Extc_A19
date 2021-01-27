@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      </head>
+
+  <body bgcolor="lightblue">
+    <h1 align="center">Login Page</h1>
+    <table align="center">
+        <tbody>
+            <tr><td>User Name</td><td><input id="username" type="text"  /></td></tr>
+            <tr><td>Password</td><td><input type="password" /></td></tr>
+            <tr><td><input type="button" onclick="validate()" value="Login"/></td></tr>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        function validate()
+        {
+            if(document.getElementById('username').value=="admin")
+            {
+                alert("yoshaa")
+            }
+	    else{alert("nay")}
+
+        }
+    </script>
+  </body>
+</html>
