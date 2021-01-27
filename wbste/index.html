@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-      </head>
+    <title>Final Year Project</title>
+    </head>
 
   <body>
-    <h1 style="background-color:lightgrey"><span style="text-align: left; color: blue">Logo</span>
+    <h1 style="background-color:lightgrey"><span style="text-align: left; color: blue; margin-left: 10px;margin-top: 8px">Logo</span>
     <input align="right" type="button" name="Sign Up"  value="Sign Up" style="display: inline-block;vertical-align: middle;float: right;margin-top: 8px; margin-right: 10px" />
     </h1>
     <h1 align="center">Login Page</h1>
     <table align="center" cellpadding="10px">
         <tbody>
-            <tr><td style="background-color: blue; text-align: center;color: white">Email</td><td><input id="username" type="text"  /></td></tr>
-            <tr><td style="background-color: blue; text-align: center; color: white">Password</td><td><input type="password" /></td></tr>
+            <tr><td style="background-color: blue; text-align: center;color: white">Username</td><td><input id="username" type="text"  /></td></tr>
+            <tr><td style="background-color: blue; text-align: center; color: white">Password</td><td><input id="password" type="password" /></td></tr>
             <tr><td style="text-align: right;"><input type="button" onclick="validate()" value="Login"/></td><td style="text-align: center;"><input type="button" value="Forgot Password"></td>
             </tr>
             <tr><td style="text-align: center;" colspan="2"><a href="#" >New User? Sign Up above</a></td></tr>
@@ -20,9 +21,45 @@
     <script type="text/javascript">
         function validate()
         {
-            if(document.getElementById('username').value=="admin")
-            {
-                alert("yoshaa")
+            if(document.getElementById('username').value=="Ninad")
+            {   if(document.getElementById('password').value=="12345")
+                {
+                    window.location.replace("https://www.youtube.com/");
+                }
+                else
+                {
+                    alert("Naaay")
+                }
+            }
+            else if(document.getElementById('username').value=="Tanmay")
+            {   if(document.getElementById('password').value=="12345")
+                {
+                    alert("yoshaa")
+                }
+                else
+                {
+                    alert("Naaay")
+                }
+            }
+            else if(document.getElementById('username').value=="Varun")
+            {   if(document.getElementById('password').value=="12345")
+                {
+                    alert("yoshaa")
+                }
+                else
+                {
+                    alert("Naaay")
+                }
+            }
+            else if(document.getElementById('username').value=="Atharva")
+            {   if(document.getElementById('password').value=="12345")
+                {
+                    alert("yoshaa")
+                }
+                else
+                {
+                    alert("Naaay")
+                }
             }
 	        else{alert("nay")} 
 
