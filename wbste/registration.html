@@ -26,16 +26,17 @@
           {
                if(document.getElementById("username").value.length < 6) alert("invalid name")
                var pswd = document.getElementById("password").value
-               if(/^([a-zA-Z0-9])+$/.test(pswd)) alert("invalid pswd")
-               if(document.getElementById("password").value!=document.getElementById("cpassword").value) alert("notsame")
+               if(/^([a-zA-Z0-9])+$/.test(pswd)) alert("invalid password")
+               if(document.getElementById("password").value!=document.getElementById("cpassword").value) alert("password does not match")
               
-               */
+               
                 var mn =document.getElementById("mnumber").value
                 if(mn.length==10)
                {
                    if(/^([7-9])/.test(mn[0])) alert("hello")
-                   
+                   else alert("invalid Mobile Number")
                }
+                else alert("invalid Mobile Number")
           }
       </script>
     </body>
