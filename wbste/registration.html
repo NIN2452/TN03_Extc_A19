@@ -3,21 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Registration</title>
+     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
 
   <body>
       <h1 align="center">User Registration Form</h1>
-      <table align="center">
+      <table align="center" cellpadding="10px">
           <tbody>
-              <tr><td>UserName</td><td><input id="username" type="text" /></td></tr>
-              <tr><td>Password</td><td><input id="password" type="password" /></td></tr>
-              <tr><td>Confirm Password</td><td><input id="cpassword" type="password" /></td></tr>
-              <tr><td>Mobile Number</td><td><input id="mnumber" type="text" /></td></tr>
-              <tr><td>Gender</td><td><input type="radio" name="Gender" value="Male" />Male
+              <tr><td id="user">UserName:</td><td><input id="username" type="text" /></td></tr>
+              <tr><td id="pass">Password:</td><td><input id="password" type="password" /></td></tr>
+              <tr><td id="pass">Confirm Password:</td><td><input id="cpassword" type="password" /></td></tr>
+              <tr><td id="MN">Mobile Number:</td><td><input id="mnumber" type="text" /></td></tr>
+              <tr><td id="GN">Gender:</td><td><input type="radio" name="Gender" value="Male" />Male
               <input type="radio" name="Gender" value="Female" />Female</td></tr>
-              <tr><td>Country</td><td><select><option>INDIA</option><option>USA</option><option>GERMANY</option><option>FRANCE</option></select></td></tr>
-              <tr><td>City</td><td><select><option>Bengaluru</option><option>Chennai</option><option>Delhi</option><option>Mumbai</option></select></td></tr>
-              <tr><td>Date of Birth</td><td><input type="Date" /></td></tr>
+              <tr><td id="CN">Country:</td><td><select><option>INDIA</option><option>USA</option><option>GERMANY</option><option>FRANCE</option></select></td></tr>
+              <tr><td id="CT">City:</td><td><select><option>Bengaluru</option><option>Chennai</option><option>Delhi</option><option>Mumbai</option></select></td></tr>
+              <tr><td id="DOB">Date of Birth:</td><td><input type="Date" /></td></tr>
               <tr><td></td><td><input type="button" value="Submit" onclick="validate()" /></td></tr>
           </tbody>
       </table>

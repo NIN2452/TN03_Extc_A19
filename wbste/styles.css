@@ -1,0 +1,23 @@
+.header  {
+	background-color:lightgrey;
+	padding:10px;
+}
+span{
+	text-align: left; 
+	color: blue; 
+	margin-left: 10px;
+	margin-top: 8px;
+}
+#Sign_Up{
+	display: inline-block;
+	vertical-align: middle;
+	float: right;
+	margin-top: 8px; 
+	margin-right: 10px;
+}
+#user, #pass, #MN, #GN, #CT, #CN, #DOB{
+	background-color: blue; 
+	text-align: center;
+	color: white;
+}
+
