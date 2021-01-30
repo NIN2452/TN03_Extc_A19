@@ -40,6 +40,6 @@ body {
 
 /* Change color on hover/mouse-over */
 .options-bar a:hover {
-  background-color: #ddd; /* Grey background color */
-  color: black; /* Black text color */
+  background-color: #ddd;
+  color: black; 
 }
