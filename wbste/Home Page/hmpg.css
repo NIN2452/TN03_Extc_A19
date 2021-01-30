@@ -5,7 +5,7 @@ body {
 .header {
   padding: 2px;
   text-align: left;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
+  background: linear-gradient(to right, #1ABC9C, lightblue);
   color: white;
 }
 .content {
