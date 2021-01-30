@@ -7,6 +7,9 @@
   </head>
 
   <body>
+    <h1 class="header"><span>Logo</span>
+    <input align="right" type="button" onclick="gotologin()" id="Login"  value="Login" />
+    </h1>
     <div id="form">
       <p id="lp">User Registration Form</p>
       <table align="center" cellpadding="10px">
@@ -27,20 +30,28 @@
       <script type="text/Javascript">
           function validate()
           {
-               if(document.getElementById("username").value.length < 6) alert("invalid name")
+               if(document.getElementById("username").value.length < 6) alert("A username must atleast contain 6 alphabets")
+               
+
                var pswd = document.getElementById("password").value
-               if(/^([a-zA-Z0-9])+$/.test(pswd)) alert("invalid password")
+               if(/^([a-zA-Z0-9])+$/.test(pswd)) alert("A password must contain alphabets, Numbers and special character")
                if(document.getElementById("password").value!=document.getElementById("cpassword").value) alert("password does not match")
               
                
                 var mn =document.getElementById("mnumber").value
                 if(mn.length==10)
                {
-                   if(/^([7-9])/.test(mn[0])) alert("hello")
+                   if(/^([7-9])/.test(mn[0])) alert("An otp will be sent to this Number")
                    else alert("invalid Mobile Number")
                }
                 else alert("invalid Mobile Number")
+
           }
-      </script>
+        function gotologin()
+        {
+            window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/index.html"); 
+        }
+
+           </script>
     </body>
 </html>
