@@ -1,6 +1,28 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
 .header {
-  background: linear-gradient(to right, #1abc9c, lightblue);
-  padding: 10px;
+  background: linear-gradient(to right, #9c27b0, #e040fb);
+  padding: 13px;
+}
+
+h1 > a{
+  color:white;
+  text-decoration: none;
+}
+a{
+	text-decoration: none;
+}
+div > a:hover{
+	color: blue;
+}
+#blackline{
+	background-color: black;
+	width: 100%;
+	height: 20px;
+	margin-bottom: 25px;
 }
 span {
   text-align: left;
@@ -50,7 +72,8 @@ span {
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
-.D_name,#problem,
+.D_name,
+#problem,
 #D_email,
 #D_gender,
 #D_con,
@@ -62,8 +85,8 @@ span {
   border-radius: 0.9em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
-#pat_add{
-	padding-top: 40px;
+#pat_add {
+  padding-top: 40px;
   background-color: #ffffff;
   width: 400px;
   height: 220px;
@@ -95,7 +118,7 @@ span {
   background-color: pink;
 }
 .session {
-  background-color: grey;
+  background-color: rgba(10, 194, 148, 0.5);
   margin: 10px 20px 10px 10px;
   height: 100px;
   width: 85%;
@@ -112,34 +135,34 @@ span {
 }
 
 .styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-collapse: collapse;
+  margin: 36px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
 }
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+  padding: 12px 15px;
 }
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+  background-color: #f3f3f3;
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #009879;
 }
 .styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+  font-weight: bold;
+  color: #009879;
 }
