@@ -50,7 +50,7 @@ span {
   border-radius: 1.5em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
-#D_name,
+.D_name,#problem,
 #D_email,
 #D_gender,
 #D_con,
@@ -62,6 +62,16 @@ span {
   border-radius: 0.9em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
+#pat_add{
+	padding-top: 40px;
+  background-color: #ffffff;
+  width: 400px;
+  height: 220px;
+  margin: 60px auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
 #lp {
   text-align: center;
   font-weight: bold;
@@ -99,4 +109,37 @@ span {
   width: 50px;
   float: right;
   margin-top: 70px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
 }
