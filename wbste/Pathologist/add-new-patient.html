@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Account</title>
+
+<style>
+	body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.header {
+  padding: 2px;
+  text-align: left;
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  color: white;
+}
+.content {
+  padding: 2px;
+  text-align: center;
+  background: white;
+  color: black;
+}
+
+.content h2 {
+  font-size: 40px;
+}
+.options-bar {
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+}
+
+/* Style the navigation bar links */
+.options-bar a {
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 14px 20px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Right-aligned link */
+.options-bar a.right {
+  float: right; /* Float a link to the right */
+}
+
+/* Change color on hover/mouse-over */
+.options-bar a:hover {
+  background-color: #ddd; /* Grey background color */
+  color: black; /* Black text color */
+}
+</style>
+<body>
+	<div class="header">
+<h2>Hi User</h2>
+</div>
+<div class="options-bar">
+  <a href="pathologist.html">Home</a>
+  <a href="my-account.html">My Account</a>
+  <a href="add-new-patient.html">Add New Patient</a>
+  <a href="add-new-reports.html">Add New Reports</a>
+  <a href="patient-list.html">Patient List</a>
+  <a href="homepg.html" class="right">Logout</a>
+ </div>
+<div class="content">
+  <p>
+    <h4>Adding New Patient:</h4>
+    <h5 align="left">Instructions:</h5>
+    <ol align='left'>
+      <li>Type the Name</li>
+      <li>Type the Drs Name</li>
+      <li>Type the Issue</li>
+      <li>Upload Proofs</li>
+    </ol>
+  </p>
+  <button>Add New</button>
+</body>
