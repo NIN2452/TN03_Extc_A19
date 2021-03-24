@@ -110,7 +110,7 @@ span {
 #menu_bar > .elements {
   padding: 10px;
   margin: 10px 5px;
-  background-color: #1abc9c;
+  background-color: linear-gradient(to right, #9c27b0, #e040fb);
   border-radius: 0.7em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
