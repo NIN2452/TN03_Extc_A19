@@ -16,19 +16,19 @@ h1 > a{
   text-decoration: none;
 }
 a{
-	text-decoration: none;
+  text-decoration: none;
 }
 div  a:hover{
 
-	color: black;
+  color: black;
 }
 /*   --------------------------   */
 /*  BlackLine   */
 #blackline{
-	background-color: black;
-	width: 100%;
-	height: 20px;
-	margin-bottom: 25px;
+  background-color: black;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 25px;
 }
 /*   --------------------------   */
 span {
@@ -126,26 +126,18 @@ span {
 #menu_bar > .elements {
   padding: 10px;
   margin: 10px 5px;
-<<<<<<< HEAD
   background-color:  #9c27b0;
-=======
-  background-color: linear-gradient(to right, #9c27b0, #e040fb);
->>>>>>> 435208f3e58438e71b3877be84d3932072a44b0b
   border-radius: 0.7em;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 .elements > a{
-	color:black;
+  color:black;
 }
 .elements >a:hover{
-	color: blue;
+  color: blue;
 }
 #menu_bar > .elements:hover {
-<<<<<<< HEAD
   background-color: white;
-=======
-  background-color: black;
->>>>>>> 435208f3e58438e71b3877be84d3932072a44b0b
 }
 /*   --------------------------   */
 
