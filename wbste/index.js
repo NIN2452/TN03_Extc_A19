@@ -1,19 +1,19 @@
  function validate()
         {
-            if(document.getElementById('username').value=="Ninad")
+            if(document.getElementById('username').value=="Doctor")
             {   if(document.getElementById('password').value=="12345")
                 {
-                    window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/1.html");
+                    window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/Doctor/index.html");
                 }
                 else
                 {
-                    alert("Naaay")
+                    alert("Wrong Password")
                 }
             }
-            else if(document.getElementById('username').value=="Tanmay")
+            else if(document.getElementById('username').value=="Receptionist")
             {   if(document.getElementById('password').value=="12345")
                 {
-                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/1.html");    
+                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/Receptionist/index.html");    
                 }
                 else
                 {
