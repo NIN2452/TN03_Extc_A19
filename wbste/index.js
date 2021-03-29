@@ -20,10 +20,10 @@
                     alert("Naaay")
                 }
             }
-            else if(document.getElementById('username').value=="Varun")
+            else if(document.getElementById('username').value=="Pathologist")
             {   if(document.getElementById('password').value=="12345")
                 {
-                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/1.html");
+                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/Pathologist/hmpg.html");
                 }
                 else
                 {
