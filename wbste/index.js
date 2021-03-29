@@ -23,7 +23,7 @@
             else if(document.getElementById('username').value=="Pathologist")
             {   if(document.getElementById('password').value=="12345")
                 {
-                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/Pathologist/hmpg.html");
+                     window.location.replace("https://nin2452.github.io/TN03_Extc_A19/wbste/Pathologist/homepg.html");
                 }
                 else
                 {
