@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="../static/other.css">
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Receptionist Name</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Hello there!</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="{{url_for('rep_home')}}">Receptionist Home</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{url_for('rep_prof')}}">Profile</a>
+            </li>           
+            <li>
+                <a href="{{url_for('rep_addpat')}}">New Patient</a>
+            </li>
+            <li>
+                <a href="{{url_for('rep_appoint')}}">Appointments</a>
+            </li>
+        </ul>
+    </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-inverse navbar-expand-lg ">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
+
+                <div class="container-fluid">
+
+                <img class="logo-img" src="{{url_for('static',filename='/images/logoehr.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Log out</a>
+                            </li>
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+<div class="container">
+      
+      <table class="table table-stripped table-bordered">
+        <tr>
+          <th>User ID</th>
+          <th>Info</th> 
+        </tr>
+        
+        <tr>
+          <td>Hospital/Clinic Lab Name</td>
+          <td>2123</td>  
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>Pathologist</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>2123</td>  
+        </tr>
+        <tr>
+          <td>Hospital/Clinic Address</td>
+          <td>2123</td>  
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>2123</td>  
+        </tr>
+        <tr>
+          <td>State, country</td>
+          <td>2123</td>  
+        </tr>
+        <tr>
+          <td>Contact</td>
+          <td>2123</td>  
+        </tr>
+        
+
+      </table>
+      <div class="col-md-12 bg-light text-right">
+            <button type="button" class="btn btn-info">Update</button>
+            <button type="button" class="btn btn-primary ml-2">Save</button>
+        </div>
+    </div>
+
+{% endblock content %}

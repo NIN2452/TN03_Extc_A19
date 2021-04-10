@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="../static/other.css">
+<body>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Patient Name</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Hello there!</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="{{url_for('pat_home')}}">Patient Home</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{{url_for('pat_prof')}}">Profile</a>
+            </li>           
+            <li>
+                <a href="{{url_for('pat_session')}}">Sessions</a>
+            </li>
+            <li>
+                <a href="{{url_for('pat_appoint')}}">Appointments</a>
+            </li>
+            <li>
+                <a href="{{url_for('pat_report')}}">Reports</a>
+            </li>
+            <li>
+                <a href="{{url_for('pat_plan')}}">Diet/Exercise Plans</a>
+            </li>
+            <li>
+                <a href="{{url_for('pat_med')}}">Prescriptions</a>
+            </li>
+        
+        </ul>
+    </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-inverse navbar-expand-lg ">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
+
+                <div class="container-fluid">
+
+                <img class="logo-img" src="{{url_for('static',filename='/images/logoehr.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Log out</a>
+                            </li>
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+ <div class="container">
+   
+   <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Patients Prescriptions</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+ </div>
+
+
+
+{% endblock content %}
