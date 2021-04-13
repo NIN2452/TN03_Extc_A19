@@ -65,7 +65,7 @@
                             <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="/logout">Log out</a>
                             </li>
                             <li class="nav-item active">
                             <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
@@ -93,51 +93,11 @@
           <th>Issue</th>
           <th>Session</th>
         </tr>
-        <tr>
-          <td>tj</td>
-          <td>4124</td>
-          <td>7263217621</td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td>lol</td>
-          <td>2123</td>
-          <td>21736219873678</td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
+        {% for user in sess %}
+        <tr  class="{{user[5]}}-row">
+            <td>{{loop.index}}</td><td>{{user[0]}} {{user[1]}}</td><td>{{user[2]}}</td><td>{{user[3]}}</td><td>{{user[4]}}</td><td>{{user[5]}}</td>
+        </tr> 
+        {% endfor %}  
 
       </table>
     </div>

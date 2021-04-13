@@ -127,6 +127,8 @@ def signup_patho():
 def signup_recep():
 	return render_template("signup_recep.html")
 
+# -------------------------------------------------------------------------------------------------------------------------
+
 # DOCTOR
 
 # Doctor's home
@@ -151,39 +153,96 @@ def doc_prof():
         return render_template("doc_prof.html", userinfo=userdetail)
     return "please login first"
 
+# Doctor add patient
+@app.route("/doc_addpat", methods=["POST", "GET"])
+def doc_addpat():
+    if g.user:
+        if request.method == "POST":
+            pat_id = request.form["pid"]
+            prob = request.form["prob"]
+            print(pat_id, prob)
+            return "successfully added patient"
+        else:
+            curser = db.connection.cursor()
+            query = f"select * from doctor where dr_id={g.user}"
+            result = curser.execute(query)
+            userdetail = curser.fetchall()
+            return render_template("doc_addpat.html", userinfo=userdetail)
+    return "please login first"
+
+# doctor patient list
+@app.route("/doc_patlist")
+def doc_patlist():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
+        result = curser.execute(query)
+        output = curser.fetchall()
+        return render_template("doc_patlist.html", userinfo=output)
+    return "please login first"
+
+# Doctor appointments
+@app.route("/doc_appoint")
+def doc_appoint():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem, a.appoint_date,a.appoint_time,s.status from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user} order by 6,7"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("doc_appoint.html", appointments=userdetail)
+    return "please login first"
+
+# Doctor session
+@app.route("/doc_session")
+def doc_session():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("doc_session.html", sess=userdetail)
+    return "please login first"
+
+
 
 # -------------------------------------------------------------------------------------------------------------------------
 
-
-@app.route("/doc_addpat")
-def doc_addpat():
-	return render_template("doc_addpat.html")
-
-@app.route("/doc_patlist")
-def doc_patlist():
-	return render_template("doc_patlist.html")
-
-@app.route("/doc_appoint")
-def doc_appoint():
-	return render_template("doc_appoint.html")
-
-@app.route("/doc_session")
-def doc_session():
-	return render_template("doc_session.html")
-
 # PATIENT
 
+# patient home page
 @app.route("/pat_home")
 def pat_home():
-	return render_template("pat_home.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from patient where p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_home.html", userinfo=userdetail)
+    return "please login first"
 
+# patient  profile page
 @app.route("/pat_prof")
 def pat_prof():
-	return render_template("pat_prof.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from patient where p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_prof.html", userinfo=userdetail)
+    return "please login first"
 
+
+# patient session
 @app.route("/pat_session")
 def pat_session():
-	return render_template("pat_session.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select d.dr_fname,d.dr_lname,d.dr_phone,s.problem,s.ses_num,s.status from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and p.p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_session.html", userinfo=userdetail)
+    return "please login first"
+
 
 @app.route("/pat_appoint")
 def pat_appoint():

@@ -90,53 +90,23 @@
       
       <table class="table table-stripped table-bordered">
         <tr>
-          <th>Date</th>
+          <th>Sr No.</th>
+          <th>Doctor Name</th>
+          <th>Contact</th>
           <th>Problem</th>
+          <th>Session No.</th>
           <th>Status</th>
-          <th>Action</th>
-          <th>View</th>
         </tr>
+        {% for user in userinfo %}
         <tr>
-          <td>tj</td>
-          <td>4124</td>
-          <td>7263217621</td>
-          <td> </td>
-          <td> </td>
+          <td>{{loop.index}}</td>
+          <td>{{user[0]}} {{user[1]}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+          <td>{{user[4]}}</td>
+          <td>{{user[5]}}</td>
         </tr>
-
-        <tr>
-          <td>lol</td>
-          <td>2123</td>
-          <td>21736219873678</td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-        </tr>
-
-
+        {% endfor %}
       </table>
     </div>
 
