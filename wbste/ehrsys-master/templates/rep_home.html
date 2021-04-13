@@ -7,7 +7,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Receptionist Name</h3>
+            <h3>{{userinfo[0][0]}}</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -67,6 +67,6 @@
                 </div>
             </nav>
 
-<h1>You have loggied in as Receptionist userinfo</h1>
+<h1>You have loggied in by ID {{userinfo[0][0]}} for {{userinfo[0][1]}}</h1>
 
 {% endblock content %}
