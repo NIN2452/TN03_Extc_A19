@@ -1,74 +1,101 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 
-<link rel="stylesheet" type="text/css" href="../static/other.css">
+<link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
-<div class="wrapper">
+  <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>{{userinfo[0][0]}}</h3>
-        </div>
+      <div class="sidebar-header">
+        <h3>{{userinfo[0][1]}}</h3>
+      </div>
 
-        <ul class="list-unstyled components">
-            <p>Hello there!</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="{{url_for('path_home')}}">Pathologist Home</a>
-                    </li>
-                </ul>
-            </li>
+      <ul class="list-unstyled components">
+        <p>Hello there!</p>
+        <li class="active">
+          <a
+            href="#homeSubmenu"
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle"
+            >Home</a
+          >
+          <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-                <a href="{{url_for('path_prof')}}">Profile</a>
-            </li>           
-            <li>
-                <a href="{{url_for('path_addpat')}}">New Patient</a>
+              <a href="{{url_for('path_home')}}">Pathologist Home</a>
             </li>
-            <li>
-                <a href="{{url_for('path_addrep')}}">New Report</a>
-            </li>
-            <li>
-                <a href="{{url_for('path_patlist')}}">Patient List</a>
-            </li>
-        </ul>
+          </ul>
+        </li>
+        <li>
+          <a href="{{url_for('path_prof')}}">Profile</a>
+        </li>
+        <li>
+          <a href="{{url_for('path_addpat')}}">New Patient</a>
+        </li>
+        <li>
+          <a href="{{url_for('path_addrep')}}">New Report</a>
+        </li>
+        <li>
+          <a href="{{url_for('path_patlist')}}">Patient List</a>
+        </li>
+      </ul>
     </nav>
 
-        <!-- Page Content  -->
-        <div id="content">
+    <!-- Page Content  -->
+    <div id="content">
+      <nav class="navbar navbar-inverse navbar-expand-lg">
+        <img
+          class="logo-img"
+          src="{{url_for('static',filename='/images/logo2.png')}}"
+          width="130"
+          height="130"
+          alt="align box"
+          align="CENTER"
+        />
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+            <span>Sidebar</span>
+          </button>
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-align-justify"></i>
+          </button>
 
-            <nav class="navbar navbar-inverse navbar-expand-lg ">
-            <img class="logo-img" src="{{url_for('static',filename='/images/logo2.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
-                <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('about')}}"
+                  >About<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('contact')}}"
+                  >Contact<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Log out</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('home')}}"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
-                        <span>Sidebar</span>
-                    </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+      <h1>You have loggied in as {{userinfo[0][1]}}</h1>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
-                            </li>                            
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
-                            </li>                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Log out</a>
-                            </li>
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-<h1>You have loggied in as {{userinfo[0][1]}}</h1>
-
-{% endblock content %}
+      {% endblock content %}
+    </div>
+  </div>
+</body>

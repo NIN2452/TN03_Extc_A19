@@ -95,7 +95,12 @@
         </tr>
         {% for user in sess %}
         <tr  class="{{user[5]}}-row">
-            <td>{{loop.index}}</td><td>{{user[0]}} {{user[1]}}</td><td>{{user[2]}}</td><td>{{user[3]}}</td><td>{{user[4]}}</td><td>{{user[5]}}</td>
+            <td>{{loop.index}}</td>
+            <td>{{user[0]}} {{user[1]}}</td>
+            <td>{{user[2]}}</td>
+            <td>{{user[3]}}</td>
+            <td>{{user[4]}}</td>
+            <td>{{user[5]}}</td>
         </tr> 
         {% endfor %}  
 

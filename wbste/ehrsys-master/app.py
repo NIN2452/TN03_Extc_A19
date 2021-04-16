@@ -70,8 +70,8 @@ def login():
 				return redirect(url_for("redirecting", table=table))
 			else:
 				return "password incorrect"
-		except Exception as e:
-				return("invalid username",e)
+		except:
+				return("invalid username")
 	return render_template("login.html")
 
 
@@ -83,9 +83,9 @@ def redirecting(table):
     elif table == "doctor":
         return redirect("/doc_home")
     elif table == "receptionist":
-        return redirect("/rep_home.html")
+        return redirect("/rep_home")
     elif table == "pathologist":
-        return redirect("/path_home.html")
+        return redirect("/path_home")
     else:
         return "please login"
 
@@ -244,9 +244,16 @@ def pat_session():
     return "please login first"
 
 
+# patient appointments
 @app.route("/pat_appoint")
 def pat_appoint():
-	return render_template("pat_appoint.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select distinct  d.dr_fname,d.dr_lname,d.dr_phone,d.dr_email, a.appoint_date,a.appoint_time from patient p, doctor d, appointment a  where p.p_id=a.p_id  and d.dr_id=a.dr_id and p.p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_appoint.html", userinfo=userdetail)
+    return "please login first"
 
 @app.route("/pat_report")
 def pat_report():
@@ -260,44 +267,102 @@ def pat_plan():
 def pat_med():
 	return render_template("pat_med.html")
 
+# -------------------------------------------------------------------------------------------------------------------------
+
+
 # PATHOLOGIST
+
+#pathologist home
 @app.route("/path_home")
 def path_home():
-	return render_template("path_home.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from pathologist where path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("path_home.html", userinfo=userdetail)
+    return "please login first"
 
+#pathologist profile
 @app.route("/path_prof")
 def path_prof():
-	return render_template("path_prof.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from pathologist where path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("path_prof.html", userinfo=userdetail)
+    return "please login first"
 
+#pathologist add patient
 @app.route("/path_addpat")
 def path_addpat():
-	return render_template("path_addpat.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from pathologist where path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("path_addpat.html", userinfo=userdetail)
+    return "please login first"
 
 @app.route("/path_addrep")
 def path_addrep():
 	return render_template("path_addrep.html")
 
+#pathologist patient list
 @app.route("/path_patlist")
 def path_patlist():
-	return render_template("path_patlist.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s, pathologist pa where p.p_id=s.p_id and s.path_id=pa.path_id and pa.path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("path_patlist.html", userinfo=userdetail)
+    return "please login first"
+
+# -------------------------------------------------------------------------------------------------------------------------
 
 # RECEPTIONIST
 
+#receptionist home
 @app.route("/rep_home")
 def rep_home():
-	return render_template("rep_home.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from receptionist where rec_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("rep_home.html", userinfo=userdetail)
+    return "please login first"
 
+
+#receptionist profile
 @app.route("/rep_prof")
 def rep_prof():
-	return render_template("rep_prof.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from receptionist where rec_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("rep_prof.html", userinfo=userdetail)
+    return "please login first"
 
 @app.route("/rep_addpat")
 def rep_addpat():
 	return render_template("rep_addpat.html")
 
+#receptionist appointments
 @app.route("/rep_appoint")
 def rep_appoint():
-	return render_template("rep_appoint.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select d.dr_fname, d.dr_lname, p.p_fname, p.p_lname, a.appoint_date,a.appoint_time from appointment a,  doctor d, recep_doc_rel rdr, patient p where a.dr_id=d.dr_id and d.dr_id=rdr.dr_id and a.dr_id=d.dr_id and p.p_id=a.p_id and rdr.rec_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("rep_appoint.html", userinfo=userdetail)
+    return "please login first"
+
+# -------------------------------------------------------------------------------------------------------------------------
 
 
 

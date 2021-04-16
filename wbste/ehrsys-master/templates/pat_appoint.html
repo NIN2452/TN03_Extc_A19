@@ -17,7 +17,7 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="{{url_for('doc_home')}}">Doc Home</a>
+                        <a href="{{url_for('pat_home')}}">Patient Home</a>
                     </li>
                 </ul>
             </li>
@@ -90,53 +90,22 @@
       
       <table class="table table-stripped table-bordered">
         <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Doctor</th>
-          <th>Appointment No.</th>
+          <th>Sr.no</th>
+          <th>Doctor Name</th>
+          <th>Contact</th>
+          <th>Email-id</th>
+          <th>Next Appointment</th>
           
         </tr>
+        {% for user in userinfo %}
         <tr>
-          <td>tj</td>
-          <td>4124</td>
-          <td>7263217621</td>
-          <td> </td>
-          
-        </tr>
-
-        <tr>
-          <td>lol</td>
-          <td>2123</td>
-          <td>21736219873678</td>
-          <td> </td>
-          
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          
-        </tr>
-
-
+            <td>{{loop.index}}</td>
+            <td>{{user[0]}} {{user[1]}}</td>
+            <td>{{user[2]}}</td>
+            <td>{{user[3]}}</td>
+            <td>{{user[4]}} {{user[5]}}</td>
+        </tr> 
+        {% endfor %} 
       </table>
     </div>
 
