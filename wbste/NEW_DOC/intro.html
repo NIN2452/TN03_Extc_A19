@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Healthy Life EHR</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" type="text/css" href="../static/intro.css">
+  <link rel="icon" type="image/png" href="logoehr.ico">
+
+  <style>
+   html{
+    scroll-behavior: smooth;
+  }
+  </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-inverse">
+      <img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="{{url_for('about')}}">About Us</a>
+			</li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Our Services
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="{{url_for('services_pat')}}">For Patients</a>
+						  <div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="{{url_for('services_doc')}}">For Doctors</a>
+						  <div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="{{url_for('services_patho')}}">For Pathologists</a>
+							 <div class="dropdown-divider"></div>
+				 <a class="dropdown-item" href="{{url_for('services_recep')}}">For Receptionists/Hospitals</a>
+	  
+			  </div>
+			</li>
+			  <li class="nav-item">
+			  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+			</li>
+        </ul>
+			  <a class="nav-link" href="{{url_for('login')}}" id="login">Login</a>
+			  <a class="nav-link" href="{{url_for('signup')}}" id="signup">Sign Up</a>
+		
+		</div>
+	  </nav>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <img class="first-slide" src="{{url_for('static',filename='images/doc.jpg')}}" alt="First slide">
+        <div class="container">
+          <div class="carousel-caption d-none d-md-block text-right " style="color: black;">
+            <h1>Welcome to Healthy Life EHR Services</h1>
+            <p>Lead a Healthy Life!</p>
+            <p><a class="btn btn-lg btn-primary" href="{{url_for('signup')}}" role="button">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="second-slide" src="{{url_for('static',filename='images/people.jpg')}}" alt="Second slide">
+        <div class="container">
+          <div class="carousel-caption d-none d-md-block" style="color: black ;">
+            <h1>Bringing happiness to you and your family</h1>
+            <p>With the help of our EHR system, you safegaurd your and your family's future.</p>
+            <p><a class="btn btn-lg btn-primary" href="{{url_for('services_pat')}}" role="button">See hear what's for You</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="third-slide" src="{{url_for('static',filename='images/Medicalrecord.jpg')}}" alt="Third slide">
+        <div class="container">
+          <div class="carousel-caption d-none d-md-block text-right"  style="color: black;">
+            <h1>A Boon for Doctors & Hospitals</h1>
+            <p>Lessen your work of maintaining huge paper records of patients.</p>
+            <p><a class="btn btn-lg btn-primary" href="{{url_for('services_doc')}}" role="button">Check Out Our Services for You</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="{{url_for('static',filename='images/pat_history.jpg')}}" alt="Generic placeholder image" width="140" height="140">
+        <h2>Leaving Behind the Old Traditions</h2>
+        <p>In this new age, the medical records industry is also stepping into new and cutting edge technologies. Overcoming the old method of keeping the paper records and files, we bring to you digital medical records!</p>
+        <p><a class="btn btn-secondary" href="#first" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="{{url_for('static',filename='images/xray.jpg')}}" alt="Generic placeholder image" width="140" height="140">
+        <h2>Online 24X7 Pathology Reports & X-Rays</h2>
+        <p>Both the patient as well as the doctor can view the patient's Pathological Reports and X-rays Digitally, Online 24X7.</p>
+        <p><a class="btn btn-secondary" href="#second" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img class="rounded-circle" src="{{url_for('static',filename='images/medicalfiles.jpg')}}" alt="Generic placeholder image" width="140" height="140">
+        <h2>Get over the Tedious Paper Records and Files!</h2>
+        <p>Its time to get over the hectic and tedious job of maintaining Medical Reports, Files and Prescriptions on paper. Move to the Digital Ones!</p>
+        <p><a class="btn btn-secondary" href="#third" role="button">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider" id="first">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Leaving Behind the Old Traditions...<span class="text-muted"></span></h2>
+        <p class="lead">Securely sharing electronic information with patients and other clinicians, Enhancing privacy and security of patient data</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" src="{{url_for('static',filename='images/pat_history.jpg')}}" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider" id="second">
+
+    <div class="row featurette">
+      <div class="col-md-7 push-md-5">
+        <h2 class="featurette-heading">Online 24X7 Pathology Reports & X-Rays<span class="text-muted"></span></h2>
+        <p class="lead">The pathologist, on the recommendation of the Doctors can Produce pathological reports be it Xrays, Blood tests or numerous other tests and upload on to the respective patients databse. Both the patient as well as the doctor can view the patient's Pathological Reports and X-rays Digitally, Online 24X7.</p>
+      </div>
+      <div class="col-md-5 pull-md-7">
+        <img class="featurette-image img-fluid mx-auto" src="{{url_for('static',filename='images/xray.jpg')}}" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider"> <a id="third"></a>
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Get over the Tedious Paper Records and Files!<span class="text-muted"></span></h2>
+        <p class="lead">The purpose of EHR, or Electronic Health Records, is to consolidate a patient’s medical chart into digital documents. They are updated patient records that can be accessed in real time by authorized users in a digital format. They also enable physicians to exchange information with one another remotely and in real time, making sure every clinician dealing with a patient has a current, complete and accurate file.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" src="{{url_for('static',filename='images/medicalfiles.jpg')}}" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+
+    <!-- FOOTER -->
+    <footer>
+      <p class="float-right"><a href="#">Back to top</a></p>
+      <p>&copy; Healthy Life EHR Ltd. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+  </div><!-- /.container -->
+
+
+
+  
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
