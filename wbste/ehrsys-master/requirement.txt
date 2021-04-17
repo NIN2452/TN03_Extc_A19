@@ -1,0 +1,23 @@
+appdirs==1.4.4
+click==7.1.2
+distlib==0.3.1
+dnspython==2.1.0
+email-validator==1.1.2
+filelock==3.0.12
+Flask==1.1.2
+Flask-MySQLdb==0.2.0
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==0.14.3
+greenlet==1.0.0
+gunicorn==20.1.0
+idna==3.1
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+mysqlclient @ file:///C:/Users/sunil/Downloads/mysqlclient-1.4.6-cp38-cp38-win32.whl
+six==1.15.0
+SQLAlchemy==1.4.5
+virtualenv==20.4.3
+Werkzeug==1.0.1
+wtf==0.1
+WTForms==2.3.3
