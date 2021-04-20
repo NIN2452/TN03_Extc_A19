@@ -9,8 +9,8 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<img class="logo-img" src="../images/logoehr.PNG" width="130" height="130" ALT="align box" ALIGN=CENTER>
+	<nav class="navbar navbar-expand-lg" style="background-color: #3A3632;">
+				<img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		</button>
@@ -18,13 +18,13 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		  <ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-			  <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+			  <a class="nav-link" href="{{url_for('home')}}" style="color: #007BFF;  background-color: #3A3632;">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="{{url_for('about')}}">About Us</a>
+			  <a class="nav-link" href="{{url_for('about')}}" style="color: #007BFF;  background-color: #3A3632;">About Us</a>
 			</li>
 			<li class="nav-item dropdown">
-			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #007BFF;  background-color: #3A3632;">
 				Our Services
 			  </a>
 			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -39,11 +39,11 @@
 			  </div>
 			</li>
 			  <li class="nav-item">
-			  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+			  <a class="nav-link" href="{{url_for('contact')}}" style="color: #007BFF;  background-color: #3A3632;">Contact Us</a>
 			</li>
         </ul>
-			  <a class="nav-link" href="{{url_for('login')}}" id="login">Login</a>
-			  <a class="nav-link" href="{{url_for('signup')}}" id="signup">Sign Up</a>
+			  <a class="nav-link" href="{{url_for('login')}}" id="login" style="color: #007BFF;  background-color: #3A3632;">Login</a>
+			  <a class="nav-link" href="{{url_for('signup')}}" id="signup" style="color: #007BFF;  background-color: #3A3632;">Sign Up</a>
 		
 		</div>
 	  </nav>
@@ -52,11 +52,11 @@
 
 	  <div class="row featurette">
 		<div class="col-md-7">
-		  <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-		  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		  <h2 class="featurette-heading">Receptionist can grant Appointments Online.<span class="text-muted"></span></h2>
+		  <p class="lead">By varifing the vacant time slots, the receptionist can give online appointments to the patients.</p>
 		</div>
 		<div class="col-md-5">
-		  <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+		  <img class="featurette-image img-fluid mx-auto" src="{{url_for('static',filename='images/recep.jpg')}}" alt="Generic placeholder image">
 		</div>
 	  </div>
   
@@ -64,17 +64,13 @@
   
 	  <div class="row featurette">
 		<div class="col-md-7 push-md-5">
-		  <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-		  <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+		  <h2 class="featurette-heading">Hospitals can Maintain easy records of all the patients with respective doctors<span class="text-muted"></span></h2>
+		  <p class="lead">Hospitals can maintain a clean and efficient record of daily patients with respectivedoctors visitng their premises and by going digital , they can save amounts spend on paper records.</p>
 		</div>
 		<div class="col-md-5 pull-md-7">
-		  <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+		  <img class="featurette-image img-fluid mx-auto" src="{{url_for('static',filename='images/hospital.jpg')}}" alt="Generic placeholder image">
 		</div>
 	  </div>
-
-    <p>
-      We are a Team of Young and enthusiastic Engineers. Our Goal is to Provide easy and convinient access to Health records so that it will help to save many lives due to the immediate availability of past records of patients and also save lots of paper work.
-    </p>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

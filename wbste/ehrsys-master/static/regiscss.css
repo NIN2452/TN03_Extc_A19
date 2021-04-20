@@ -27,7 +27,7 @@ p {
 
   .navbar {
     overflow: hidden; /* Hide overflow */
-    background-color: white; /* Dark background color */
+    background-color: #3A3632; /* Dark background color */
   }
   
   .navbar a {

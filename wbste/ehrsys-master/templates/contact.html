@@ -1,109 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../static/intro.css" />
-    <link rel="icon" type="image/png" href="logoehr.ico" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-inverse">
-      <img
-        class="logo-img"
-        src="{{url_for('static',filename='images/logoehr.PNG')}}"
-        width="130"
-        height="130"
-        alt="align box"
-        align="CENTER"
-      />
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/intro.css">
+	<link rel="icon" type="image/png" href="logoehr.ico">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{url_for('home')}}"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('about')}}">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Our Services
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url_for('services_pat')}}"
-                >For Patients</a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{url_for('services_doc')}}"
-                >For Doctors</a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{url_for('services_patho')}}"
-                >For Pathologists</a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{url_for('services_recep')}}"
-                >For Receptionists/Hospitals</a
-              >
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
-          </li>
+	<style>
+	body {font-family: Arial, Helvetica, sans-serif;}
+	* {box-sizing: border-box;}
+	
+	input[type=text], select, textarea {
+	  width: 50%;
+	  padding: 12px;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  box-sizing: border-box;
+	  margin-top: 6px;
+	  margin-bottom: 16px;
+	  resize: vertical;
+	}
+	
+	input[type=submit] {
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 12px 20px;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	}
+	
+	input[type=submit]:hover {
+	  background-color: #45a049;
+	}
+	
+	.container {
+	  border-radius: 5px;
+	  background-color: #f2f2f2;
+	  padding: 50px;
+	  width: 50%;
+	  margin-left: 0%;
+	  float: left;
+	}
+
+	#map {
+		height: 400px;
+		width: 50%;
+		float: right;
+	}
+	</style>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg" style="background-color: #3A3632;">
+		<img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="{{url_for('about')}}">About Us</a>
+			</li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Our Services
+			  </a>
+			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="{{url_for('services_pat')}}">For Patients</a>
+						  <div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="{{url_for('services_doc')}}">For Doctors</a>
+						  <div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="{{url_for('services_patho')}}">For Pathologists</a>
+							 <div class="dropdown-divider"></div>
+				 <a class="dropdown-item" href="{{url_for('services_recep')}}">For Receptionists/Hospitals</a>
+	  
+			  </div>
+			</li>
+			  <li class="nav-item">
+			  <a class="nav-link" href="{{url_for('contact')}}">Contact Us</a>
+			</li>
         </ul>
-        <a class="nav-link" href="{{url_for('login')}}" id="login">Login</a>
-        <a class="nav-link" href="{{url_for('signup')}}" id="signup">Sign Up</a>
-      </div>
-    </nav>
+			  <a class="nav-link" href="{{url_for('login')}}" id="login" style="color: #007BFF;">Login</a>
+			  <a class="nav-link" href="{{url_for('signup')}}" id="signup" style="color: #007BFF;">Sign Up</a>
+		
+		</div>
+	  </nav>
+	 
+	  
+	  <div class="container">
+		<form action="/action_page.php" >
+			<h3>Contact Form</h3>
+			<hr>
+		  <label for="fname">First Name</label>		  <br>
 
-    <p>
-      We are a Team of Young and enthusiastic Engineers. Our Goal is to Provide
-      easy and convinient access to Health records so that it will help to save
-      many lives due to the immediate availability of past records of patients
-      and also save lots of paper work.
-    </p>
+		  <input type="text" id="fname" name="firstname" placeholder="Your name.." style="width: 80%;">
+			<br>
+		  <label for="lname">Last Name</label>		  <br>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+		  <input type="text" id="lname" name="lastname" placeholder="Your last name.." style="width: 80%;">
+		  <br>
+		  <label for="city">City</label>		  <br>
+
+		  <input type="text" id="lname" name="lastname" placeholder="City.." style="width: 80%;">
+		  <br>
+
+		  <label for="state">State</label>		  <br>
+
+		  <input type="text" id="lname" name="lastname" placeholder="State.." style="width: 80%;">
+		  <br>
+
+		  <label for="country">Country</label>		  <br>
+
+		  <input type="text" id="lname" name="lastname" placeholder="Country.." style="width: 80%;">
+		  <br>
+
+		  <label for="subject">Subject</label>		  <br>
+
+		  <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px; width: 80%;"></textarea>
+		  <br>
+
+		  <input type="submit" value="Submit">
+		</form>
+	  </div>
+	
+	<h3>Our Location:</h3>
+	<div id="map"></div>
+	<script>
+	function initMap() {
+		var uluru = {lat: 19.031678100276903, lng: 73.01661657048137};
+		var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 4,
+		center: uluru
+		});
+		var marker = new google.maps.Marker({
+		position: uluru,
+		map: map
+		});
+	}
+	</script>
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2bXKNDezDf6YNVc-SauobynNHPo4RJb8&callback=initMap">
+	</script>
+	<h3>Contact Numbers:</h3>
+	<p><b>Ninad Yadav</b>: +919192331234, <b>Varun Phatak</b>: +919192557879</p>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>
+
+
+
+ 
