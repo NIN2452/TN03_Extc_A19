@@ -2,6 +2,7 @@ from flask import Flask, redirect,g,request, url_for, session, render_template
 #from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 import os
+import MySQLdb
 
 # initialization of flask
 app = Flask(__name__)
@@ -17,6 +18,8 @@ app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "newuser"
 app.config["MYSQL_PASSWORD"] = "Ninad2452"
 app.config["MYSQL_DB"] = "ehrsystem"
+
+# -------------------------------------------------------------------------------------------------------------------------
 
 # initializing database as db
 db = MySQL(app)
@@ -51,6 +54,7 @@ def services_recep():
 def services_pat():
 	return render_template("services_pat.html")
 
+# -------------------------------------------------------------------------------------------------------------------------
 
 # login page
 @app.route("/login", methods=["POST", "GET"])
@@ -89,12 +93,6 @@ def redirecting(table):
     else:
         return "please login"
 
-
-# Sign Up
-@app.route("/signup")
-def signup():
-    return render_template("signup.html")
-
 # checking and initialising user
 @app.before_request
 def before_request():
@@ -114,6 +112,35 @@ def logout():
 
 
 # -------------------------------------------------------------------------------------------------------------------------
+
+# Sign Up Patient
+@app.route("/signup", methods=["POST", "GET"])
+def signup():
+    if request.method == "POST":
+        email=request.form['email']
+        fname=request.form['fname']
+        lname=request.form['lname']
+        gender=request.form['gender']
+        dob=request.form['birthday']
+        phone=request.form['phone']
+        address=request.form['add']
+        city=request.form['city']
+        state=request.form['state']
+        country=request.form['country']
+        relname=request.form['relaname']
+        relaphone=request.form['relaphone']
+        pswd=request.form['psw']
+        curser = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        query = f"insert into patient(p_fname, p_lname,P_email, p_add, p_city, p_state, p_country, p_phone, p_gend,p_dob, p_relaname, p_relaphone) values('{fname}','{lname}','{email}','{address}','{city}','{state}','{country}',{phone},'{gender}','{dob}','{relname}',{relaphone})"
+        curser.execute(query)
+        db.connection.commit()
+        query2=f"insert into login_patient(user_password) values('{pswd}')"
+        curser.execute(query2)
+        db.connection.commit()
+        curser.close()
+        return "registered successfully"
+    else:
+        return render_template("signup.html")
 
 @app.route("/signup_doc")
 def signup_doc():

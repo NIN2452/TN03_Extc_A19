@@ -1,56 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/regiscss.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../static/regiscss.css">
   <link rel="icon" type="image/png" href="logoehr.ico">
 
 </head>
+
 <body>
-	<nav class="navbar navbar-expand-lg" style="background-color: #3A3632;">
-        <img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-	  
-		<div class="collapse navbar-collapse" id="navbarSupportedContent"  style="background-color: #3A3632;">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active" >
-			  <a class="nav-link" href="{{url_for('home')}}" style="color: #007BFF; background-color: #3A3632;">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="{{url_for('about')}}" style="color: #007BFF;  background-color: #3A3632;">About Us</a>
-			</li>
-			<li class="nav-item dropdown">
-			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #007BFF;  background-color: #3A3632;">
-				Our Services
-			  </a>
-			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href="{{url_for('services_pat')}}" style="color: #007BFF; background-color: #3A3632;">For Patients</a>
-						  <div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="{{url_for('services_doc')}}" style="color: #007BFF;">For Doctors</a>
-						  <div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="{{url_for('services_patho')}}" style="color: #007BFF;">For Pathologists</a>
-							 <div class="dropdown-divider"></div>
-				 <a class="dropdown-item" href="{{url_for('services_recep')}}" style="color: #007BFF;">For Receptionists/Hospitals</a>
-	  
-			  </div>
-			</li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="{{url_for('contact')}}" style="color: #007BFF;  background-color: #3A3632;">Contact Us</a>
-			</li>
-        </ul>
-			  <a class="nav-link" href="{{url_for('login')}}" id="login" style="color: #007BFF;  background-color: #3A3632;">Login</a>
-			  <a class="nav-link" href="{{url_for('signup')}}" id="signup" style="color: #007BFF;  background-color: #3A3632;">Sign Up</a>
-		
-		</div>
-	  </nav>
+  <nav class="navbar navbar-expand-lg" style="background-color: #3A3632;">
+    <img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130"
+      ALT="align box" ALIGN=CENTER>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #3A3632;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('home')}}" style="color: #007BFF; background-color: #3A3632;">Home <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('about')}}" style="color: #007BFF;  background-color: #3A3632;">About
+            Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="color: #007BFF;  background-color: #3A3632;">
+            Our Services
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{url_for('services_pat')}}"
+              style="color: #007BFF; background-color: #3A3632;">For Patients</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url_for('services_doc')}}" style="color: #007BFF;">For Doctors</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url_for('services_patho')}}" style="color: #007BFF;">For Pathologists</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{url_for('services_recep')}}" style="color: #007BFF;">For
+              Receptionists/Hospitals</a>
+
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('contact')}}" style="color: #007BFF;  background-color: #3A3632;">Contact
+            Us</a>
+        </li>
+      </ul>
+      <a class="nav-link" href="{{url_for('login')}}" id="login"
+        style="color: #007BFF;  background-color: #3A3632;">Login</a>
+      <a class="nav-link" href="{{url_for('signup')}}" id="signup"
+        style="color: #007BFF;  background-color: #3A3632;">Sign Up</a>
+
+    </div>
+  </nav>
 
 
-    
-  <div  class="header" style="color: rgb(6, 8, 5)"><h1><marquee behavior="scroll" direction="left">Register Now !</marquee></a></h1>
+
+  <div class="header" style="color: rgb(6, 8, 5)">
+    <h1>
+      <marquee behavior="scroll" direction="left">Register Now !</marquee></a>
+    </h1>
 
     <nav class="navbar navbar-expand-sm">
       <ul class="navbar-nav">
@@ -64,55 +80,57 @@
           <a class="nav-link" href="{{url_for('signup_patho')}}" style="color: #007BFF;">Signup as Pathologist</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url_for('signup_recep')}}" style="color: #007BFF;">Signup as Receptionist/Hospital</a>
+          <a class="nav-link" href="{{url_for('signup_recep')}}" style="color: #007BFF;">Signup as
+            Receptionist/Hospital</a>
         </li>
       </ul>
-          <a class="nav-link" href="{{url_for('login')}}" id="member" style="color: #007BFF;">Already a Member? Login here</a>
+      <a class="nav-link" href="{{url_for('login')}}" id="member" style="color: #007BFF;">Already a Member? Login
+        here</a>
     </nav>
     <br>
-    <form action="action_page.php">
+    <form action="/signup" method="POST">
       <div class="container">
         <h1>Register as Patient</h1>
         <p>Please fill in this form to create an account.</p>
         <hr>
-    
+
         <label for="fname"><b>First Name</b></label>
         <br>
-        <input type="text" placeholder="Enter Your First Name" name="email" id="email" required>
-        <br>
-    
-        <label for="lname"><b>Last Name</b></label>
-        <br>
-        <input type="text" placeholder="Enter Your Last Name" name="email" id="email" required>
+        <input type="text" placeholder="Enter Your First Name" name="fname" id="email" required>
         <br>
 
-    
-        <label for="gender"  ><b>Gender</b></label>
+        <label for="lname"><b>Last Name</b></label>
+        <br>
+        <input type="text" placeholder="Enter Your Last Name" name="lname" id="email" required>
+        <br>
+
+
+        <label for="gender"><b>Gender</b></label>
         <br>
         <select name="gender" id="gender" style="width: 50%;">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Other</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
         </select>
         <br>
-    
-        <label for="dateofbirth" ><b>Date of Birth</b></label>
+
+        <label for="dateofbirth"><b>Date of Birth</b></label>
         <br>
-        <input type="date" id="birthday" name="birthday" style="width: 50%;">
+        <input type="date" id="birthday" name="birthday" required pattern="\d{4}-\d{2}-\d{2}" style="width: 50%;">
         <br>
-    
+
         <label for="email"><b>Email Id</b></label>
         <br>
         <input type="text" placeholder="Enter Email" name="email" id="email" required>
         <br>
 
-    
+
         <label for="phone"><b>Phone No.</b></label>
         <br>
-        <input type="text" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
+        <input type="number" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
         <br>
 
-    
+
         <label for="add"><b>Address</b></label>
         <br>
         <input type="text" placeholder="Enter Address" name="add" id="add" required>
@@ -125,48 +143,48 @@
 
         <label for="state"><b>State</b></label>
         <br>
-        <select name="state" id="state" class="form-control"  style="width: 50%;">
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-        <option value="Bihar">Bihar</option>
-        <option value="Chandigarh">Chandigarh</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-        <option value="Daman and Diu">Daman and Diu</option>
-        <option value="Delhi">Delhi</option>
-        <option value="Lakshadweep">Lakshadweep</option>
-        <option value="Puducherry">Puducherry</option>
-        <option value="Goa">Goa</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Himachal Pradesh">Himachal Pradesh</option>
-        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Kerala">Kerala</option>
-        <option value="Madhya Pradesh">Madhya Pradesh</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Manipur">Manipur</option>
-        <option value="Meghalaya">Meghalaya</option>
-        <option value="Mizoram">Mizoram</option>
-        <option value="Nagaland">Nagaland</option>
-        <option value="Odisha">Odisha</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Rajasthan">Rajasthan</option>
-        <option value="Sikkim">Sikkim</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Telangana">Telangana</option>
-        <option value="Tripura">Tripura</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="Uttarakhand">Uttarakhand</option>
-        <option value="West Bengal">West Bengal</option>
+        <select name="state" id="state" class="form-control" style="width: 50%;">
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Puducherry">Puducherry</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
         </select>
         <br>
-    
+
         <label for="country"><b>Country</b></label>
         <br>
-        <input type="text" placeholder="Enter Country Name" name="email" id="email" required>
+        <input type="text" placeholder="Enter Country Name" name="country" id="email" required>
         <br>
 
         <label for="relaname"><b>Relative's Name</b></label>
@@ -176,7 +194,7 @@
 
         <label for="relaphone"><b>Relative's Phone No.</b></label>
         <br>
-        <input type="text" placeholder="Enter Relative's Phone Number" name="relaphone" id="relaphone" required>
+        <input type="number" placeholder="Enter Relative's Phone Number" name="relaphone" id="relaphone" required>
         <br>
 
         <label for="psw"><b>Password</b></label>
@@ -188,23 +206,23 @@
         <br>
         <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
         <hr>
-    
+
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
         <button type="submit" class="registerbtn">Register</button>
       </div>
-    </form> 
-  
+    </form>
 
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-
-
- 
-
-
-

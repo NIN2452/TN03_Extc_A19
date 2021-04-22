@@ -3,80 +3,76 @@
 /* Padding below the footer and lighter body text */
 
 html {
-  font-size: 62.5%;
+  font-size: 16px;
 }
 
 body {
-    padding-top: 0rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
-  }
-  
-  
-  /* CUSTOMIZE THE CAROUSEL
+  padding-top: 0rem;
+  padding-bottom: 3rem;
+  color: #5a5a5a;
+}
+
+/* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */
-  
-  /* Carousel base class */
-  .carousel {
-    margin-bottom: 4rem;
-  }
-  /* Since positioning the image, we need to help out the caption */
-  .carousel-caption {
-    z-index: 10;
-    bottom: 3rem;
-  }
-  
-  /* Declare heights because of positioning of img element */
-  .carousel-item {
-    height: 32rem;
-    background-color: #777;
-  }
-  .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-  }
-  
-  
-  /* MARKETING CONTENT
+
+/* Carousel base class */
+.carousel {
+  margin-bottom: 4rem;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+  bottom: 3rem;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* MARKETING CONTENT
   -------------------------------------------------- */
-  
-  /* Center align the text within the three columns below the carousel */
-  .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  .marketing h2 {
-    font-weight: normal;
-  }
-  .marketing .col-lg-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
-  }
-  
-  
-  /* Featurettes
+
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+/* Featurettes
   ------------------------- */
-  
-  .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  }
-  
-  /* Thin out the marketing headings */
-  .featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -.05rem;
-  }
-  
-  
-  /* RESPONSIVE CSS
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.05rem;
+}
+
+/* RESPONSIVE CSS
   -------------------------------------------------- */
-  
-  @media (min-width: 998px) {
-    /* Bump up size of carousel content 
+
+@media (min-width: 998px) {
+  /* Bump up size of carousel content 
     .carousel-caption p {
       margin-bottom: 1.25rem;
       font-size: 1.25rem;
@@ -90,28 +86,29 @@ body {
   html {
     font-size: 55%;
   }
-  }
-  
-  @media (min-width: 768px) {
-    /*.featurette-heading {
+}
+
+@media (min-width: 768px) {
+  /*.featurette-heading {
       margin-top: 7rem;
     }*/
-    html {
-      font-size: 45%;
-    }
+  html {
+    font-size: 45%;
   }
+}
 
-  /* extra styles*/
+/* extra styles*/
 
-   #signup, #login{
-        float: right;
-        text-emphasis-color: #007BFF;
-   }
+#signup,
+#login {
+  float: right;
+  text-emphasis-color: #007bff;
+}
 
-   .logo-img{
-    float: left;
-    position: relative;
-    margin: .5rem 1rem .5rem 1rem;
-    width: 12rem;
-    height: 6.5rem;
+.logo-img {
+  float: left;
+  position: relative;
+  margin: 0.5rem 1rem 0.5rem 1rem;
+  width: 12rem;
+  height: 6.5rem;
 }
