@@ -130,7 +130,7 @@ def signup():
         relname=request.form['relaname']
         relaphone=request.form['relaphone']
         pswd=request.form['psw']
-        curser = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        curser = db.connection.cursor()#MySQLdb.cursors.DictCursor
         query = f"insert into patient(p_fname, p_lname,P_email, p_add, p_city, p_state, p_country, p_phone, p_gend,p_dob, p_relaname, p_relaphone) values('{fname}','{lname}','{email}','{address}','{city}','{state}','{country}',{phone},'{gender}','{dob}','{relname}',{relaphone})"
         curser.execute(query)
         db.connection.commit()
@@ -142,10 +142,37 @@ def signup():
     else:
         return render_template("signup.html")
 
-@app.route("/signup_doc")
+#Doctor Signup
+@app.route("/signup_doc", methods=["POST", "GET"])
 def signup_doc():
-	return render_template("signup_doc.html")
+    if request.method=='POST':
+        email=request.form['email']
+        fname=request.form['fname']
+        lname=request.form['lname']
+        gender=request.form['gender']
+        dob=request.form['birthday']
+        phone=request.form['phone']
+        address=request.form['add']
+        city=request.form['city']
+        state=request.form['state']
+        country=request.form['country']
+        degree=request.form['degree']
+        specs=request.form['specialization']
+        visiting=request.form['visiting']
+        pswd=request.form['pass']
+        curser = db.connection.cursor()
+        query=f"insert into doctor(dr_fname, dr_lname, dr_email, dr_add, dr_city, dr_state, dr_country, dr_phone, dr_gend, dr_dob, dr_degree, dr_specializatn, dr_visiting) values('{fname}','{lname}','{email}','{address}','{city}','{state}','{country}',{phone},'{gender}','{dob}','{degree}','{specs}','{visiting}')"
+        curser.execute(query)
+        db.connection.commit()
+        query2=f"insert into login_doctor(user_password) values('{pswd}')"
+        curser.execute(query2)
+        db.connection.commit()
+        curser.close()
+        return "registered successfully"
+    else:
+        return render_template("signup_doc.html")
 
+	
 @app.route("/signup_patho")
 def signup_patho():
 	return render_template("signup_patho.html")

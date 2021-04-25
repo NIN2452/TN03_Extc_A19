@@ -1,94 +1,169 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../static/regiscss.css">
-	<link rel="icon" type="image/png" href="logoehr.ico">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../static/regiscss.css" />
+    <link rel="icon" type="image/png" href="logoehr.ico" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #3a3632">
+      <img
+        class="logo-img"
+        src="{{url_for('static',filename='images/logoehr.PNG')}}"
+        width="130"
+        height="130"
+        alt="align box"
+        align="CENTER"
+      />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-</head>
-<body>
-	<nav class="navbar navbar-expand-lg" style="background-color: #3A3632;">
-				<img class="logo-img" src="{{url_for('static',filename='images/logoehr.PNG')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-	  
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-			  <a class="nav-link" href="{{url_for('home')}}" style="color: #007BFF;  background-color: #3A3632;">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="{{url_for('about')}}" style="color: #007BFF;  background-color: #3A3632;">About Us</a>
-			</li>
-			<li class="nav-item dropdown">
-			  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #007BFF;  background-color: #3A3632;">
-				Our Services
-			  </a>
-			  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<a class="dropdown-item" href="{{url_for('services_pat')}}">For Patients</a>
-						  <div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="{{url_for('services_doc')}}">For Doctors</a>
-						  <div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="{{url_for('services_patho')}}">For Pathologists</a>
-							 <div class="dropdown-divider"></div>
-				 <a class="dropdown-item" href="{{url_for('services_recep')}}">For Receptionists/Hospitals</a>
-	  
-			  </div>
-			</li>
-			  <li class="nav-item">
-			  <a class="nav-link" href="{{url_for('contact')}}" style="color: #007BFF;  background-color: #3A3632;">Contact Us</a>
-			</li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a
+              class="nav-link"
+              href="{{url_for('home')}}"
+              style="color: #007bff; background-color: #3a3632"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{url_for('about')}}"
+              style="color: #007bff; background-color: #3a3632"
+              >About Us</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style="color: #007bff; background-color: #3a3632"
+            >
+              Our Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{url_for('services_pat')}}"
+                >For Patients</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{url_for('services_doc')}}"
+                >For Doctors</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{url_for('services_patho')}}"
+                >For Pathologists</a
+              >
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{url_for('services_recep')}}"
+                >For Receptionists/Hospitals</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="{{url_for('contact')}}"
+              style="color: #007bff; background-color: #3a3632"
+              >Contact Us</a
+            >
+          </li>
         </ul>
-			  <a class="nav-link" href="{{url_for('login')}}" id="login" style="color: #007BFF;  background-color: #3A3632;">Login</a>
-			  <a class="nav-link" href="{{url_for('signup')}}" id="signup" style="color: #007BFF;  background-color: #3A3632;">Sign Up</a>
-		
-		</div>
-	  </nav>
-    
+        <a
+          class="nav-link"
+          href="{{url_for('login')}}"
+          id="login"
+          style="color: #007bff; background-color: #3a3632"
+          >Login</a
+        >
+        <a
+          class="nav-link"
+          href="{{url_for('signup')}}"
+          id="signup"
+          style="color: #007bff; background-color: #3a3632"
+          >Sign Up</a
+        >
+      </div>
+    </nav>
 
-	  <form action="action_page.php">
-		<div class="container">
-		  <h1>Login</h1>
-		  <p>Please fill in this form to login to your account.</p>
-		  <hr>
-	  
-		  <label for="login"><b>Login As</b></label>
-		  <br>
-		  <select name="login" id="login" style="width: 50%;">
-		  <option value="log_pat">Patient</option>
-		  <option value="log_doc">Doctor</option>
-		  <option value="log_patho">Pathologist</option>
-		  <option value="log_recep">Receptionist</option>
-		  <br>
+    <form action="#" method="POST">
+      <div class="container">
+        <h1>Login</h1>
+        <p>Please fill in this form to login to your account.</p>
+        <hr />
 
-		  </select>
-		  <br>
-		  <label for="email"><b>User Id</b></label>
-		  <br>
-		  <input type="text" placeholder="Enter Email" name="email" id="email" required>
-		  <br>
+        <label for="login"><b>Login As</b></label>
+        <br />
+        <select name="table" id="login" style="width: 50%">
+          <option value="patient">Patient</option>
+          <option value="doctor">Doctor</option>
+          <option value="pathologist">Pathologist</option>
+          <option value="receptionist">Receptionist</option>
+          <br />
+        </select>
+        <br />
+        <label for="email"><b>User Id</b></label>
+        <br />
+        <input
+          type="text"
+          placeholder="Enter Email"
+          name="userid"
+          id="userid"
+          required
+        />
+        <br />
 
-		  <label for="psw"><b>Password</b></label>
-		  <br>
-        <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+        <label for="psw"><b>Password</b></label>
+        <br />
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="pass"
+          id="pass"
+          required
+        />
 
-		
-		<button type="submit" class="registerbtn">Login</button>
-	</div>
-</form> 
+        <button type="submit" class="registerbtn">Login</button>
+      </div>
+    </form>
 
-		 
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
-
-
- 
- 
