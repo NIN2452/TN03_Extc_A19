@@ -173,13 +173,54 @@ def signup_doc():
         return render_template("signup_doc.html")
 
 	
-@app.route("/signup_patho")
+@app.route("/signup_patho", methods=["POST", "GET"])
 def signup_patho():
-	return render_template("signup_patho.html")
+    if request.method=='POST':
+        labname=request.form['labname']
+        email=request.form['email']
+        phone=request.form['phone']
+        add=request.form['add']
+        city=request.form['city']
+        state=request.form['state']
+        country=request.form['country']
+        pswd=request.form['psw']
+        u=request.form.getlist('utils')
+        util=",".join(u)
+        utils=util+", etc."
+        curser = db.connection.cursor()
+        query=f"insert into pathologist(path_name,path_email,path_add,Path_city,path_state,path_country, path_phone,Path_util) values('{labname}','{email}','{add}','{city}','{state}','{country}',{phone},'{utils}')"
+        curser.execute(query)
+        db.connection.commit()
+        query2=f"insert into login_pathologist(user_password) values('{pswd}')"
+        curser.execute(query2)
+        db.connection.commit()
+        curser.close()
+        return "registered successfully"
+    else:
+        return render_template("signup_patho.html")
 
-@app.route("/signup_recep")
+@app.route("/signup_recep", methods=["POST", "GET"])
 def signup_recep():
-	return render_template("signup_recep.html")
+    if request.method=='POST':
+        hname=request.form['hname']
+        email=request.form['email']
+        phone=request.form['phone']
+        add=request.form['add']
+        city=request.form['city']
+        state=request.form['state']
+        country=request.form['country']
+        pswd=request.form['psw']
+        curser = db.connection.cursor()
+        query=f"insert into receptionist(hos_name,rec_email,hos_add,hos_city,hos_state,hos_country,rec_phone) values('{hname}','{email}','{add}','{city}','{state}','{country}',{phone})"
+        curser.execute(query)
+        db.connection.commit()
+        query2=f"insert into login_receptionist(user_password) values('{pswd}')"
+        curser.execute(query2)
+        db.connection.commit()
+        curser.close()
+        return "registered successfully"
+    else:
+	    return render_template("signup_recep.html")
 
 # -------------------------------------------------------------------------------------------------------------------------
 

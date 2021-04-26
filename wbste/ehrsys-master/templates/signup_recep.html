@@ -70,7 +70,7 @@
           <a class="nav-link" href="{{url_for('login')}}" style="color: #007BFF;">Already a Member? Login here</a>
     </nav>
     <br>
-    <form action="action_page.php">
+    <form action="/signup_recep" method="POST">
       <div class="container">
         <h1>Register as Receptionist</h1>
     <p>Please fill in this form to create an account.</p>
@@ -88,7 +88,7 @@
 
     <label for="phone"><b>Phone No.</b></label>
     <br>
-    <input type="text" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
+    <input type="number" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
     <br>
 
     <label for="add"><b>Address</b></label>
@@ -144,7 +144,7 @@
 
     <label for="country"><b>Country</b></label>
     <br>
-    <input type="text" placeholder="Enter Country Name" name="email" id="email" required>
+    <input type="text" placeholder="Enter Country Name" name="country" id="email" required>
     <br>
 
     <label for="psw"><b>Password</b></label>

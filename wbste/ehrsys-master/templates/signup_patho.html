@@ -71,7 +71,7 @@
       </ul>
     </nav>
     <br>
-    <form action="action_page.php">
+    <form action="/signup_patho" method="POST">
       <div class="container">
         <h1>Register as Pathologist</h1>
     <p>Please fill in this form to create an account.</p>
@@ -89,7 +89,7 @@
 
     <label for="phone"><b>Phone No.</b></label>
     <br>
-    <input type="text" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
+    <input type="number" placeholder="Enter Your Phone Number" name="phone" id="phone" required>
     <br>
 
     <label for="add"><b>Address</b></label>
@@ -145,33 +145,32 @@
 
     <label for="country"><b>Country</b></label>
     <br>
-    <input type="text" placeholder="Enter Country Name" name="email" id="email" required>
+    <input type="text" placeholder="Enter Country Name" name="country" id="email" required>
     <br>
 
     <label for="tests"><b>Tests Available</b></label>
     <br>
-    <form action="">
-      <input type="checkbox" id="blood_test" name="blood_test" value="blood_test">
+      <input type="checkbox" id="blood_test" name="utils" value="blood test">
       <label for="blood_test">Blood Test</label><br>
-      <input type="checkbox" id="urine_test" name="urine_test" value="urine_test">
+      <input type="checkbox" id="urine_test" name="utils" value="urine test">
       <label for="urine_test">Urine Test</label><br>
-      <input type="checkbox" id="Lipid_Profile" name="Lipid_Profile" value="Lipid_Profile">
+      <input type="checkbox" id="Lipid_Profile" name="utils" value="Lipid Profile">
       <label for="Lipid_Profile">Lipid Profile</label><br>
-      <input type="checkbox" id="Liver_test" name="Liver_test" value="Liver_test">
+      <input type="checkbox" id="Liver_test" name="utils" value="Liver test">
       <label for="Liver_test">Liver Test</label><br>
       <input type="checkbox" id="X-ray" name="X-ray" value="X-ray">
       <label for="X-ray">X-ray</label><br>
-      <input type="checkbox" id="hemo_test" name="hemo_test" value="hemo_test">
+      <input type="checkbox" id="hemo_test" name="utils" value="Hemoglobin Test">
       <label for="hemo_test">Hemoglobin Test</label><br>
-      <input type="checkbox" id="thyroid_test" name="thyroid_test" value="thyroid_test">
+      <input type="checkbox" id="thyroid_test" name="utils" value="thyroid test">
       <label for="thyroid_test">Thyroid</label><br>
-      <input type="checkbox" id="metab_test" name="metab_test" value="metab_test">
+      <input type="checkbox" id="metab_test" name="utils" value="Basic Metabolic">
       <label for="metab_test">Basic Metabolic</label><br>
-      <input type="checkbox" id="cmetab_test" name="cmetab_test" value="cmetab_test">
+      <input type="checkbox" id="cmetab_test" name="utils" value="Comprehensive Metabolic">
       <label for="cmetab_test">Comprehensive Metabolic</label><br>
-      <input type="checkbox" id="scan" name="scan" value="scan">
+      <input type="checkbox" id="scan" name="utils" value="scan">
       <label for="scan">Scanner</label><br><br>
-    </form>
+   
 
     <label for="psw"><b>Password</b></label>
     <br>
