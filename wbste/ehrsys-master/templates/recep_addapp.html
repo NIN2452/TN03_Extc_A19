@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Pathologist profile</title>
+    <title>Doctor profile</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -31,7 +31,7 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="{{url_for('path_home')}}">Pathologist Home</a>
+                        <a href="{{url_for('path_home')}}">Doctor Home</a>
                     </li>
                 </ul>
             </li>
@@ -87,40 +87,33 @@
 
 <form action="action_page.php">
         <div class="container">
-          <h1>Add Report</h1>
+          <h1>Add Appointment</h1>
           <hr>
     
           <br>
-          <label for="id"><b>Patient Name/ID</b></label>
+          <label for="id"><b>Appointment Number</b></label>
           <br>
-          <input type="text" placeholder="Patient Name/ID" name="id" id="pat_id" required>
+          <input type="text" placeholder="Appointment Number" name="id" id="pat_id" required>
           <br>
 
-          <label for="issue"><b>Problem/issue</b></label>
+          <label for="id"><b>Patient ID</b></label>
           <br>
-        <input type="text" placeholder="Enter issue" name="issue" id="issue" required>
+          <input type="text" placeholder="Patient ID" name="id" id="pat_id" required>
+          <br>
+
+          <label for="id"><b>Doctor ID</b></label>
+          <br>
+          <input type="text" placeholder="Doctor ID" name="id" id="pat_id" required>
+          <br>
+
+          <label for="issue"><b>Appointment Time</b></label>
+          <br>
+        <input type="text" placeholder="Appointment Time" name="issue" id="issue" required>
         <br>
-          <label for="id"><b>Doctor Name/ID</b></label>
+          <label for="id"><b>Appointment Date</b></label>
           <br>
-          <input type="text" placeholder="Doctor Name/ID" name="id" id="doc_id" required>
+          <input type="text" placeholder="Appointment Date" name="id" id="doc_id" required>
         <br>
-          <label for="id"><b>Report Name/ID</b></label>
-          <br>
-          <input type="text" placeholder="Report Name/Id" name="id" id="rep_id" required>
-        <br>
-
-        <div class="form-group">
-            <label for="txtPost"><b>Upload Reports(in .jpeg/.jpg/.png format)</b></label>
-
-            <div class="input-group">
-                <span class="input-group-btn">
-                <span class="btn btn-primary btn-file" style="width: 400px;">
-                    Browse<input type="file" id="fileupload" name="file" multiple>
-                </span>
-                </span>
-            </div>
-
-        </div>
         
         <button type="submit" class="registerbtn">Add</button>
     </div>

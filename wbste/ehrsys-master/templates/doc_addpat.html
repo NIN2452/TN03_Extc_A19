@@ -1,155 +1,139 @@
-{% extends "layout.html" %} {% block content %}
+<!DOCTYPE html>
+<html>
 
-<link rel="stylesheet" type="text/css" href="../static/other.css" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Doctor profile</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/other.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
 <body>
-  <div class="wrapper">
+<div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-      <div class="sidebar-header">
-        <h3>Dr.Placeholder</h3>
-      </div>
+        <div class="sidebar-header">
+            <h3>ID :{{userinfo[0][0]}}</h3>
+        </div>
 
-      <ul class="list-unstyled components">
-        <p>Hello there!</p>
-        <li class="active">
-          <a
-            href="#homeSubmenu"
-            data-toggle="collapse"
-            aria-expanded="false"
-            class="dropdown-toggle"
-            >Home</a
-          >
-          <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-              <a href="{{url_for('doc_home')}}">Doc Home</a>
+        <ul class="list-unstyled components">
+            <p>Hello there!</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="{{url_for('path_home')}}">Doctor Home</a>
+                    </li>
+                </ul>
             </li>
-          </ul>
-        </li>
-
-        <li>
-          <a href="{{url_for('doc_prof')}}">Profile</a>
-        </li>
-        <li>
-          <a href="{{url_for('doc_addpat')}}">New Patient</a>
-        </li>
-        <li>
-          <a href="{{url_for('doc_patlist')}}">Patient list</a>
-        </li>
-        <li>
-          <a href="{{url_for('doc_appoint')}}">Apointments</a>
-        </li>
-        <li>
-          <a href="{{url_for('doc_session')}}">Sessions</a>
-        </li>
-      </ul>
+            <li>
+                <a href="{{url_for('path_prof')}}">Profile</a>
+            </li>           
+            <li>
+                <a href="{{url_for('path_addpat')}}">New Patient</a>
+            </li>
+            <li>
+                <a href="{{url_for('path_addrep')}}">New Report</a>
+            </li>
+            <li>
+                <a href="{{url_for('path_patlist')}}">Patient List</a>
+            </li>
+        </ul>
     </nav>
 
-    <!-- Page Content  -->
-    <div id="content">
-      <nav class="navbar navbar-inverse navbar-expand-lg">
-        <button type="button" id="sidebarCollapse" class="btn btn-info">
-          <i class="fas fa-align-left"></i>
-          <span></span>
-        </button>
+        <!-- Page Content  -->
+        <div id="content">
 
-        <div class="container-fluid">
-          <img
-            class="logo-img"
-            src="{{url_for('static',filename='/images/logoehr.png')}}"
-            width="130"
-            height="130"
-            alt="align box"
-            align="CENTER"
-          />
-          <button
-            class="btn btn-dark d-inline-block d-lg-none ml-auto"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-align-justify"></i>
-          </button>
+            <nav class="navbar navbar-inverse navbar-expand-lg ">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('about')}}"
-                  >About<span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('contact')}}"
-                  >Contact<span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Log out</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('home')}}"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+                <div class="container-fluid">
 
-      <form id="profile" action="#" method="POST">
+                <img class="logo-img" src="{{url_for('static',filename='/images/logoehr.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Log out</a>
+                            </li>
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+<form action="action_page.php">
         <div class="container">
           <h1>Add Patient</h1>
-          <hr />
-
-          <br />
+          <hr>
+    
+          <br>
           <label for="id"><b>Patient ID</b></label>
-          <br />
-          <input
-            type="number"
-            placeholder="Enter ID"
-            name="pid"
-            id="pat_id"
-            required
-          />
-          <br />
-          <label for="ses_num"><b>Session Number</b></label>
-          <br />
-          <input
-            type="number"
-            placeholder="Enter Session Number"
-            name="ses_num"
-            id="ses_num"
-            required
-          />
-          <br />
-          <label for="id"><b>Pathologist ID</b></label>
-          <br />
-          <input
-            type="number"
-            placeholder="Pathologist ID"
-            name="pathid"
-            id="path_id"
-            value="null"
-          />
-          <br />
+          <br>
+          <input type="text" placeholder="Patient ID" name="id" id="pat_id" required>
+          <br>
 
-          <label for="issue"><b>Problem/issue</b></label>
-          <br />
-          <input
-            type="text"
-            placeholder="Enter issue"
-            name="prob"
-            id="issue"
-            required
-          />
+          <label for="id"><b>Patient Name</b></label>
+          <br>
+          <input type="text" placeholder="Patient Name" name="id" id="pat_id" required>
+          <br>
 
-          <button type="submit" class="registerbtn">Add</button>
-        </div>
-      </form>
+          <label for="issue"><b>Session Number</b></label>
+          <br>
+        <input type="text" placeholder="Session Number" name="issue" id="issue" required>
+        <br>
+          <label for="id"><b>Pathologist Name/ID</b></label>
+          <br>
+          <input type="text" placeholder="Pathologist Name/ID" name="id" id="doc_id" required>
+        <br>
+          <label for="id"><b>Problem/Issues</b></label>
+          <br>
+          <input type="text" placeholder="Problem/Issue" name="id" id="rep_id" required>
+        <br>
+
+        
+        <button type="submit" class="registerbtn">Add</button>
     </div>
-  </div>
+</form> 
 
-  {% endblock content %}
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
 </body>
+
+</html>
