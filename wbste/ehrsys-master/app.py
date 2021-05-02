@@ -253,10 +253,19 @@ def doc_prof():
 def doc_addpat():
     if g.user:
         if request.method == "POST":
+            ses_num=request.form["ses_num"]
             pat_id = request.form["pid"]
             prob = request.form["prob"]
-            print(pat_id, prob)
-            return "successfully added patient"
+            path_id=request.form["pathid"]
+            curser = db.connection.cursor()
+            if path_id=='null':
+                query = f"insert into session(ses_num, p_id, dr_id, problem, status) values({ses_num}, {pat_id}, {g.user}, '{prob}', 'Active');"
+            else:
+                query = f"insert into session(ses_num, p_id, dr_id, path_id, problem, status) values({ses_num}, {pat_id}, {g.user}, {path_id}, '{prob}', 'Active');"
+            curser.execute(query)
+            db.connection.commit()
+            curser.close()
+            return redirect(url_for("doc_patlist"))
         else:
             curser = db.connection.cursor()
             query = f"select * from doctor where dr_id={g.user}"
@@ -292,7 +301,7 @@ def doc_appoint():
 def doc_session():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user}"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         return render_template("doc_session.html", sess=userdetail)
