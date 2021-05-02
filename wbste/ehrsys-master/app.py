@@ -258,10 +258,7 @@ def doc_addpat():
             prob = request.form["prob"]
             path_id=request.form["pathid"]
             curser = db.connection.cursor()
-            if path_id=='null':
-                query = f"insert into session(ses_num, p_id, dr_id, problem, status) values({ses_num}, {pat_id}, {g.user}, '{prob}', 'Active');"
-            else:
-                query = f"insert into session(ses_num, p_id, dr_id, path_id, problem, status) values({ses_num}, {pat_id}, {g.user}, {path_id}, '{prob}', 'Active');"
+            query = f"insert into session(ses_num, p_id, dr_id, path_id, problem, status) values({ses_num}, {pat_id}, {g.user}, {path_id}, '{prob}', 'Active');"
             curser.execute(query)
             db.connection.commit()
             curser.close()
@@ -369,7 +366,13 @@ def pat_plan():
 
 @app.route("/pat_med")
 def pat_med():
-	return render_template("pat_med.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select p_fname, p_lname, disease, Drug_name, Date, Time from patient pat, prescription pres where pat.p_id=pres.pat_id and pat.p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_med.html", userinfo=userdetail)
+    return "Please Login First"
 
 # -------------------------------------------------------------------------------------------------------------------------
 
