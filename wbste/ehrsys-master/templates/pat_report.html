@@ -84,50 +84,27 @@
     <h3 class="panel-title">My Reports</h3>
   </div>
 
-    <div class="container">
-      
-      <table class="table table-stripped table-bordered">
-        <tr>
-          <th>Title</th>
+  <div class="container">
+    <table class="table table-stripped table-bordered">
+      <tr>
           <th>Date</th>
-          <th>Doctor</th>
-          <th>Action</th>
-          
-        </tr>
-        <tr>
-          <td>tj</td>
-          <td>4124</td>
-          <td>7263217621</td>
-          <td><button href="#" class="btn btn-primary">download</button></td>
-          
-        </tr>
-
-        <tr>
-          <td>lol</td>
-          <td>2123</td>
-          <td>21736219873678</td>
-          <td><button href="#" class="btn btn-primary">download</button></td>
-          
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td><button href="#" class="btn btn-primary">download</button></td>
-          
-        </tr>
-
-        <tr>
-          <td> </td>
-          <td> </td>
-          <td> </td>
-          <td><button href="#" class="btn btn-primary">download</button> </td>
-          
-        </tr>
-
-      </table>
-    </div>
+      </tr>
+      {% for user in userinfo %}
+      <tr>
+        <td>{{user[3]}}</td>
+        <td>
+            {% set values = user[2].split(";") %}
+            {% for elements in values %}
+            <tr>
+                {% set element = elements.split(":") %}
+                <td>{{element[0]}} :</td><td>{{element[1]}}</td>
+            </tr>
+            {% endfor %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 
   </div>
 </div>

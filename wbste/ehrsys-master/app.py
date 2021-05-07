@@ -1,5 +1,4 @@
 from flask import Flask, redirect,g,request, url_for, session, render_template
-#from flask_sqlalchemy import SQLAlchemy
 from flask_mysqldb import MySQL
 import os
 import MySQLdb
@@ -130,7 +129,7 @@ def signup():
         relname=request.form['relaname']
         relaphone=request.form['relaphone']
         pswd=request.form['psw']
-        curser = db.connection.cursor()#MySQLdb.cursors.DictCursor
+        curser = db.connection.cursor()
         query = f"insert into patient(p_fname, p_lname,P_email, p_add, p_city, p_state, p_country, p_phone, p_gend,p_dob, p_relaname, p_relaphone) values('{fname}','{lname}','{email}','{address}','{city}','{state}','{country}',{phone},'{gender}','{dob}','{relname}',{relaphone})"
         curser.execute(query)
         db.connection.commit()
@@ -356,14 +355,29 @@ def pat_appoint():
         return render_template("pat_appoint.html", userinfo=userdetail)
     return "please login first"
 
+#patient report
 @app.route("/pat_report")
 def pat_report():
-	return render_template("pat_report.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select p_fname, p_lname, test_name, date from patient pat,report r where pat.p_id=r.p_id and pat.p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_report.html", userinfo=userdetail)
+    return "Please Login First"
 
+#Diet and Exercise
 @app.route("/pat_plan")
 def pat_plan():
-	return render_template("pat_plan.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select p_fname, p_lname, Dietitian_Name, food from patient pat, diet d where pat.p_id=d.pat_id and pat.p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("pat_plan.html", userinfo=userdetail)
+    return "Please Login First"
 
+#Prescription
 @app.route("/pat_med")
 def pat_med():
     if g.user:
