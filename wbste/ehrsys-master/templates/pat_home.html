@@ -1,4 +1,5 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %} {% block title %} Patient home {% endblock %} {%
+block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
@@ -6,7 +7,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>Patient Name</h3>
+        <h3>{{userinfo[0][1]}}</h3>
       </div>
 
       <ul class="list-unstyled components">
@@ -100,7 +101,7 @@
         </div>
       </nav>
 
-      <h1>You have logged in as {{userinfo[0][1]}}</h1>
+      <h1>You have logged in as {{userinfo[0][1]}} {{userinfo[0][2]}}</h1>
 
       {% endblock content %}
     </div>

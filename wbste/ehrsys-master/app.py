@@ -477,7 +477,7 @@ def rep_addpat():
 def rep_appoint():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select d.dr_fname, d.dr_lname, p.p_fname, p.p_lname, a.appoint_date,a.appoint_time from appointment a,  doctor d, recep_doc_rel rdr, patient p where a.dr_id=d.dr_id and d.dr_id=rdr.dr_id and a.dr_id=d.dr_id and p.p_id=a.p_id and rdr.rec_id={g.user}"
+        query = f"select d.dr_fname, d.dr_lname, p.p_fname, p.p_lname, a.appoint_date,a.appoint_time, r.hos_name from appointment a,  doctor d, recep_doc_rel rdr, patient p, receptionist r  where a.dr_id=d.dr_id and d.dr_id=rdr.dr_id and r.rec_id = rdr.rec_id and a.dr_id=d.dr_id and p.p_id=a.p_id and rdr.rec_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         return render_template("rep_appoint.html", userinfo=userdetail)
