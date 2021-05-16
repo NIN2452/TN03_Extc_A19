@@ -233,6 +233,7 @@ def doc_home():
         query = f"select * from doctor where dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("doc_home.html", userinfo=userdetail)
     return "please login first"
 
@@ -244,6 +245,7 @@ def doc_prof():
         query = f"select * from doctor where dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("doc_prof.html", userinfo=userdetail)
     return "please login first"
 
@@ -278,6 +280,7 @@ def doc_patlist():
         query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         output = curser.fetchall()
+        curser.close()
         return render_template("doc_patlist.html", userinfo=output)
     return "please login first"
 
@@ -289,6 +292,7 @@ def doc_appoint():
         query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem, a.appoint_date,a.appoint_time,s.status from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user} order by 6,7"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("doc_appoint.html", appointments=userdetail)
     return "please login first"
 
@@ -300,6 +304,7 @@ def doc_session():
         query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status,p.p_id from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("doc_session.html", sess=userdetail)
     return "please login first"
 
@@ -318,6 +323,7 @@ def doc_pat(patid):
         query3 = f"select p_fname, p_lname, disease, Drug_name, Date, Time from patient pat, prescription pres where pat.p_id=pres.pat_id and pat.p_id={pid}"
         result3 = curser.execute(query3)
         prescription = curser.fetchall()
+        curser.close()
         return render_template("doc_pat.html", pid=pid, report=report, diet=diet, prescription=prescription)
     return "please login first"
 
@@ -334,6 +340,7 @@ def pat_home():
         query = f"select * from patient where p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_home.html", userinfo=userdetail)
     return "please login first"
 
@@ -345,6 +352,7 @@ def pat_prof():
         query = f"select * from patient where p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_prof.html", userinfo=userdetail)
     return "please login first"
 
@@ -357,6 +365,7 @@ def pat_session():
         query = f"select d.dr_fname,d.dr_lname,d.dr_phone,s.problem,s.ses_num,s.status from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and p.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_session.html", userinfo=userdetail)
     return "please login first"
 
@@ -369,6 +378,7 @@ def pat_appoint():
         query = f"select distinct  d.dr_fname,d.dr_lname,d.dr_phone,d.dr_email, a.appoint_date,a.appoint_time from patient p, doctor d, appointment a  where p.p_id=a.p_id  and d.dr_id=a.dr_id and p.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_appoint.html", userinfo=userdetail)
     return "please login first"
 
@@ -380,6 +390,7 @@ def pat_report():
         query = f"select p_fname, p_lname, test_name, date from patient pat,report r where pat.p_id=r.p_id and pat.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_report.html", userinfo=userdetail)
     return "Please Login First"
 
@@ -391,6 +402,7 @@ def pat_plan():
         query = f"select p_fname, p_lname, Dietitian_Name, food from patient pat, diet d where pat.p_id=d.pat_id and pat.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_plan.html", userinfo=userdetail)
     return "Please Login First"
 
@@ -402,6 +414,7 @@ def pat_med():
         query = f"select p_fname, p_lname, disease, Drug_name, Date, Time from patient pat, prescription pres where pat.p_id=pres.pat_id and pat.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("pat_med.html", userinfo=userdetail)
     return "Please Login First"
 
@@ -418,6 +431,7 @@ def path_home():
         query = f"select * from pathologist where path_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("path_home.html", userinfo=userdetail)
     return "please login first"
 
@@ -429,6 +443,7 @@ def path_prof():
         query = f"select * from pathologist where path_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("path_prof.html", userinfo=userdetail)
     return "please login first"
 
@@ -440,6 +455,7 @@ def path_addpat():
         query = f"select * from pathologist where path_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("path_addpat.html", userinfo=userdetail)
     return "please login first"
 
@@ -455,6 +471,7 @@ def path_patlist():
         query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s, pathologist pa where p.p_id=s.p_id and s.path_id=pa.path_id and pa.path_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("path_patlist.html", userinfo=userdetail)
     return "please login first"
 
@@ -470,6 +487,7 @@ def rep_home():
         query = f"select * from receptionist where rec_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("rep_home.html", userinfo=userdetail)
     return "please login first"
 
@@ -497,6 +515,7 @@ def rep_appoint():
         query = f"select d.dr_fname, d.dr_lname, p.p_fname, p.p_lname, a.appoint_date,a.appoint_time, r.hos_name from appointment a,  doctor d, recep_doc_rel rdr, patient p, receptionist r  where a.dr_id=d.dr_id and d.dr_id=rdr.dr_id and r.rec_id = rdr.rec_id and a.dr_id=d.dr_id and p.p_id=a.p_id and rdr.rec_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
+        curser.close()
         return render_template("rep_appoint.html", userinfo=userdetail)
     return "please login first"
 
