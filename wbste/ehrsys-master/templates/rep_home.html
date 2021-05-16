@@ -1,4 +1,7 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %} 
+{% block title %} Receptionist home {% endblock %}
+
+{% block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
@@ -94,7 +97,7 @@
       </nav>
 
       <h1>
-        You have loggied in by ID {{userinfo[0][0]}} for {{userinfo[0][1]}}
+        You have logged in as {{userinfo[0][1]}}
       </h1>
 
       {% endblock content %}

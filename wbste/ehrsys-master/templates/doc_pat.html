@@ -88,7 +88,7 @@
         {% for user in report %}
         <tr>
           
-          <td>
+        
               {% set values = user[2].split(";") %}
               {% for elements in values %}
               <tr>
@@ -96,11 +96,13 @@
                   <td>{{element[0]}} </td><td>{{element[1]}}</td>
               </tr>
               {% endfor %}
-          </td>
+         
         </tr>
         {% endfor %}
       </table>
-      <button align="right">Edit Data</button>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
+    </div>
   </div>
   <br />
   <br />
@@ -123,7 +125,10 @@
           <td>{{user[5]}}</td>
         </tr>
         {% endfor %}
-      </table><button align="right">Edit Data</button>
+      </table>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
+    </div>
   </div>
   <br />
   <br />
@@ -142,7 +147,10 @@
           <td>{{user[3]}}</td>
         </tr>
         {% endfor %}
-      </table><button align="right">Edit Data</button>
+      </table>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
+    </div>
    </div> 
 
   </div>

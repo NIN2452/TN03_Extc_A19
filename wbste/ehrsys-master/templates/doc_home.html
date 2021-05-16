@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+{% block title %} Doctor home {% endblock %}
+
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css">
@@ -63,7 +65,7 @@
                             <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="/logout">Log out</a>
                             </li>
                             <li class="nav-item active">
                             <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
@@ -73,6 +75,10 @@
                 </div>
             </nav>
 
-<h1>Welcome {{userinfo[0][1]}} {{userinfo[0][2]}}</h1>
+<h1>You have logged in as {{userinfo[0][1]}} {{userinfo[0][2]}}</h1>
 
 {% endblock content %}
+
+</div>
+</div>
+</body>

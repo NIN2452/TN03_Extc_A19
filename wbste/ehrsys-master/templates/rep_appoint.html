@@ -1,4 +1,7 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %} 
+{% block title %} Appointment List {% endblock %}
+
+{% block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
@@ -79,7 +82,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log out</a>
+                <a class="nav-link" href="/logout">Log out</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('home')}}"
