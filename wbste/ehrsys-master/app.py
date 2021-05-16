@@ -297,12 +297,29 @@ def doc_appoint():
 def doc_session():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status,p.p_id from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         return render_template("doc_session.html", sess=userdetail)
     return "please login first"
 
+#Doctor edit Diet/prescription/reports
+@app.route("/doc_pat/<patid>")
+def doc_pat(patid):
+    if g.user:
+        pid=patid
+        curser = db.connection.cursor()
+        query1 = f"select p_fname, p_lname, test_name, date from patient pat,report r where pat.p_id=r.p_id and pat.p_id={pid}"
+        result1 = curser.execute(query1)
+        report = curser.fetchall()
+        query2 = f"select p_fname, p_lname, Dietitian_Name, food from patient pat, diet d where pat.p_id=d.pat_id and pat.p_id={pid}"
+        result2 = curser.execute(query2)
+        diet = curser.fetchall()
+        query3 = f"select p_fname, p_lname, disease, Drug_name, Date, Time from patient pat, prescription pres where pat.p_id=pres.pat_id and pat.p_id={pid}"
+        result3 = curser.execute(query3)
+        prescription = curser.fetchall()
+        return render_template("doc_pat.html", pid=pid, report=report, diet=diet, prescription=prescription)
+    return "please login first"
 
 
 # -------------------------------------------------------------------------------------------------------------------------

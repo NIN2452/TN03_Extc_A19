@@ -79,33 +79,71 @@
    
   <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Session List</h3>
-  </div>
-
-    <div class="container">
-      
-      <table class="table table-stripped table-bordered">
+    <h3 class="panel-title">We are seeing {{pid}}</h3>
+    <h4>Reports</h4>
+    <table class="table table-stripped table-bordered">
         <tr>
-          <th>Sr.no</th>
-          <th>Patient Name</th>
-          <th>Contact</th>
-          <th>Email-id</th>
-          <th>Issue</th>
-          <th>Session</th>
+            <th>Date</th><td>{{report[0][3]}}</td>
         </tr>
-        {% for user in sess %}
-        <tr  class="{{user[5]}}-row">
-            <td>{{loop.index}}</td>
-            <td>{{user[0]}} {{user[1]}}</td>
-            <td>{{user[2]}}</td>
-            <td>{{user[3]}}</td>
-            <td>{{user[4]}}</td>
-            <td><a href="/doc_pat/{{user[6]}}">{{user[5]}}</a></td>
-        </tr> 
-        {% endfor %}  
-
+        {% for user in report %}
+        <tr>
+          
+          <td>
+              {% set values = user[2].split(";") %}
+              {% for elements in values %}
+              <tr>
+                  {% set element = elements.split(":") %}
+                  <td>{{element[0]}} </td><td>{{element[1]}}</td>
+              </tr>
+              {% endfor %}
+          </td>
+        </tr>
+        {% endfor %}
       </table>
-    </div>
+      <button align="right">Edit Data</button>
+  </div>
+  <br />
+  <br />
+  <div>
+      <h4>Medicines</h4>
+    <table class="table table-stripped table-bordered">
+        <tr>
+          <th>Sr No.</th>
+          <th>Disease</th>
+          <th>Drug Name</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+        {% for user in prescription %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+          <td>{{user[4]}}</td>
+          <td>{{user[5]}}</td>
+        </tr>
+        {% endfor %}
+      </table><button align="right">Edit Data</button>
+  </div>
+  <br />
+  <br />
+   <div>
+    <h4>Diet</h4>
+    <table class="table table-stripped table-bordered">
+        <tr>
+          <th>Sr No.</th>
+          <th>Dietitian Name</th>
+          <th>Food</th>
+        </tr>
+        {% for user in diet %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+        </tr>
+        {% endfor %}
+      </table><button align="right">Edit Data</button>
+   </div> 
 
   </div>
 </div>
