@@ -87,17 +87,17 @@
   <div class="container">
     <table class="table table-stripped table-bordered">
       <tr>
-          <th>Date</th>
+          <th>Date</th><td>{{userinfo[0][3]}}</td>
       </tr>
       {% for user in userinfo %}
       <tr>
-        <td>{{user[3]}}</td>
+        
         <td>
             {% set values = user[2].split(";") %}
             {% for elements in values %}
             <tr>
                 {% set element = elements.split(":") %}
-                <td>{{element[0]}} :</td><td>{{element[1]}}</td>
+                <td>{{element[0]}} </td><td>{{element[1]}}</td>
             </tr>
             {% endfor %}
         </td>
