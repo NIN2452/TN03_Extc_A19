@@ -1,4 +1,7 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %} 
+{% block title %} Appointment List {% endblock %}
+
+{% block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
@@ -6,7 +9,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>{{userinfo[0][0]}}</h3>
+        <h3>{{userinfo[0][6]}}</h3>
       </div>
 
       <ul class="list-unstyled components">
@@ -79,7 +82,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log out</a>
+                <a class="nav-link" href="/logout">Log out</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('home')}}"

@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
-
-{% block title %} Add Patients {% endblock %}
-
 {% block content %}
 
+<!-- START BLOCK CONSTANT -->
 <link rel="stylesheet" type="text/css" href="../static/other.css">
 <body>
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>ID :{{userinfo[0][1]}}</h3>
+            <h3>Dr.Placeholder</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -19,18 +17,25 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="{{url_for('rep_home')}}">Receptionist Home</a>
+                        <a href="{{url_for('doc_home')}}">Doc Home</a>
                     </li>
                 </ul>
             </li>
+
             <li>
-                <a href="{{url_for('rep_prof')}}">Profile</a>
+                <a href="{{url_for('doc_prof')}}">Profile</a>
             </li>           
             <li>
-                <a href="{{url_for('rep_addpat')}}">New Patient</a>
+                <a href="{{url_for('doc_addpat')}}">New Patient</a>
             </li>
             <li>
-                <a href="{{url_for('rep_appoint')}}">Appointments</a>
+                <a href="{{url_for('doc_patlist')}}">Patient list</a>
+            </li>
+            <li>
+                <a href="{{url_for('doc_appoint')}}">Apointments</a>
+            </li>
+            <li>
+                <a href="{{url_for('doc_session')}}">Sessions</a>
             </li>
         </ul>
     </nav>
@@ -69,25 +74,91 @@
                     </div>
                 </div>
             </nav>
-
-<form action="action_page.php">
-        <div class="container">
-          <h1>Add Patient</h1>
-          <hr>
-    
-          <br>
-          <label for="id"><b>Patient Name/ID</b></label>
-          <br>
-          <input type="text" placeholder="Username/ID" name="id" id="pat_id" required>
-          <br>
-
-          <label for="issue"><b>Problem/issue</b></label>
-          <br>
-        <input type="text" placeholder="Enter issue" name="issue" id="issue" required>
-        <br>
+<!-- END BLOCK CONSTANT -->
+ <div class="container">
+   
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">We are seeing {{pid}}</h3>
+    <h4>Reports</h4>
+    <table class="table table-stripped table-bordered">
+        <tr>
+            <th>Date</th><td>{{report[0][3]}}</td>
+        </tr>
+        {% for user in report %}
+        <tr>
+          
         
-        <button type="submit" class="registerbtn">Add</button>
+              {% set values = user[2].split(";") %}
+              {% for elements in values %}
+              <tr>
+                  {% set element = elements.split(":") %}
+                  <td>{{element[0]}} </td><td>{{element[1]}}</td>
+              </tr>
+              {% endfor %}
+         
+        </tr>
+        {% endfor %}
+      </table>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
     </div>
-</form>
+  </div>
+  <br />
+  <br />
+  <div>
+      <h4>Medicines</h4>
+    <table class="table table-stripped table-bordered">
+        <tr>
+          <th>Sr No.</th>
+          <th>Disease</th>
+          <th>Drug Name</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+        {% for user in prescription %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+          <td>{{user[4]}}</td>
+          <td>{{user[5]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
+    </div>
+  </div>
+  <br />
+  <br />
+   <div>
+    <h4>Diet</h4>
+    <table class="table table-stripped table-bordered">
+        <tr>
+          <th>Sr No.</th>
+          <th>Dietitian Name</th>
+          <th>Food</th>
+        </tr>
+        {% for user in diet %}
+        <tr>
+          <td>{{loop.index}}</td>
+          <td>{{user[2]}}</td>
+          <td>{{user[3]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      <div class="col-md-12 bg-light text-right">
+        <button type="button" class="btn btn-info">Edit</button>
+    </div>
+   </div> 
+
+  </div>
+</div>
+
+ </div>
+
+    </div>
+ </div>
 
 {% endblock content %}

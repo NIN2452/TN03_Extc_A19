@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Pathologist profile</title>
+    <title>Add New Reports</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -22,7 +22,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>ID :{{userinfo[0][0]}}</h3>
+            <h3>ID :{{userinfo[0][1]}}</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -52,19 +52,32 @@
 
         <!-- Page Content  -->
         <div id="content">
-
-            <nav class="navbar navbar-inverse navbar-expand-lg ">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span></span>
-            </button>
-
+            <nav class="navbar navbar-inverse navbar-expand-lg">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                  <i class="fas fa-align-left"></i>
+                  <span></span>
+                </button>
+        
                 <div class="container-fluid">
-
-                <img class="logo-img" src="{{url_for('static',filename='/images/logoehr.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+                  <img
+                    class="logo-img"
+                    src="{{url_for('static',filename='/images/logoehr.png')}}"
+                    width="130"
+                    height="130"
+                    alt="align box"
+                    align="CENTER"
+                  />
+                  <button
+                    class="btn btn-dark d-inline-block d-lg-none ml-auto"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <i class="fas fa-align-justify"></i>
+                  </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
@@ -75,7 +88,7 @@
                             <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="/logout">Log out</a>
                             </li>
                             <li class="nav-item active">
                             <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>

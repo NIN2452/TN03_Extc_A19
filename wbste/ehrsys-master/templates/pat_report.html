@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+{% block title %} Patient Report {% endblock %}
+
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="../static/other.css">
@@ -7,7 +9,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Patient Name</h3>
+            <h3>{{userinfo[0][1]}}</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -67,7 +69,7 @@
                             <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="/logout">Log out</a>
                             </li>
                             <li class="nav-item active">
                             <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
@@ -87,17 +89,17 @@
   <div class="container">
     <table class="table table-stripped table-bordered">
       <tr>
-          <th>Date</th>
+          <th>Date</th><td>{{userinfo[0][3]}}</td>
       </tr>
       {% for user in userinfo %}
       <tr>
-        <td>{{user[3]}}</td>
+        
         <td>
             {% set values = user[2].split(";") %}
             {% for elements in values %}
             <tr>
                 {% set element = elements.split(":") %}
-                <td>{{element[0]}} :</td><td>{{element[1]}}</td>
+                <td>{{element[0]}} </td><td>{{element[1]}}</td>
             </tr>
             {% endfor %}
         </td>

@@ -13,7 +13,6 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" type="text/css" href="../static/other.css">
     <!-- Font Awesome JS -->
-    <link rel="icon" href="../static/images/stick.ico">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
@@ -23,7 +22,7 @@
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Patient Name</h3>
+            <h3>{{userinfo[0][1]}}</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -32,7 +31,7 @@
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="{{url_for('doc_home')}}">Patient Home</a>
+                        <a href="{{url_for('pat_home')}}">Patient Home</a>
                     </li>
                 </ul>
             </li>
@@ -87,7 +86,7 @@
                     <a class="nav-link" href="{{url_for('about')}}">About <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                    <a class="nav-link" href="{{url_for('login')}}">Log out <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/logout">Log out <span class="sr-only">(current)</span></a>
                     </li>
                         </ul>
                     </div>
@@ -142,8 +141,7 @@
                                                 
       </table>
       <div class="col-md-12 bg-light text-right">
-            <button type="button" class="btn btn-info">Update</button>
-            <button type="button" class="btn btn-primary ml-2">Save</button>
+            <button type="button" class="btn btn-info" href="          ">Edit Profile</button>
         </div>
     </div>
     </div>
