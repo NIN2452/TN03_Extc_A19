@@ -249,6 +249,18 @@ def doc_prof():
         return render_template("doc_prof.html", userinfo=userdetail)
     return "please login first"
 
+#Doctor update profile
+@app.route("/doc_profupdate")
+def doc_profupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select dr_id, dr_fname, dr_lname from doctor where dr_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("doc_profupdate.html", userinfo=userdetail)
+    return "please login first"
+
 # Doctor add patient
 @app.route("/doc_addpat", methods=["POST", "GET"])
 def doc_addpat():
@@ -277,7 +289,7 @@ def doc_addpat():
 def doc_patlist():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add, d.dr_fname from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         output = curser.fetchall()
         curser.close()
@@ -289,7 +301,7 @@ def doc_patlist():
 def doc_appoint():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem, a.appoint_date,a.appoint_time,s.status from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user} order by 6,7"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem, a.appoint_date,a.appoint_time,s.status, d.dr_fname from patient p, session s,doctor d, appointment a where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id=a.dr_id and d.dr_id={g.user} order by 6,7"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
@@ -301,7 +313,7 @@ def doc_appoint():
 def doc_session():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status,p.p_id from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,s.problem,s.status,p.p_id, d.dr_fname from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and d.dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
@@ -356,13 +368,24 @@ def pat_prof():
         return render_template("pat_prof.html", userinfo=userdetail)
     return "please login first"
 
+#patient update prifile
+@app.route("/pat_profupdate")
+def pat_profupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select p_id, p_fname, p_lname from patient where p_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("pat_profupdate.html", userinfo=userdetail)
+    return "please login first"
 
 # patient session
 @app.route("/pat_session")
 def pat_session():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select d.dr_fname,d.dr_lname,d.dr_phone,s.problem,s.ses_num,s.status from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and p.p_id={g.user}"
+        query = f"select d.dr_fname,d.dr_lname,d.dr_phone,s.problem,s.ses_num,s.status, p.p_fname from patient p, session s,doctor d where p.p_id=s.p_id and s.dr_id=d.dr_id and p.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
@@ -375,7 +398,7 @@ def pat_session():
 def pat_appoint():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct  d.dr_fname,d.dr_lname,d.dr_phone,d.dr_email, a.appoint_date,a.appoint_time from patient p, doctor d, appointment a  where p.p_id=a.p_id  and d.dr_id=a.dr_id and p.p_id={g.user}"
+        query = f"select distinct  d.dr_fname,d.dr_lname,d.dr_phone,d.dr_email, a.appoint_date,a.appoint_time, p.p_fname from patient p, doctor d, appointment a  where p.p_id=a.p_id  and d.dr_id=a.dr_id and p.p_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
