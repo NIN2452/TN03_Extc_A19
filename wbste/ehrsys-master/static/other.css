@@ -283,3 +283,11 @@ a.article:hover {
     display: none;
   }
 }
+
+/* table last column */
+td.Active-row {
+  color: blue;
+}
+td.Closed-row {
+  color: red;
+}

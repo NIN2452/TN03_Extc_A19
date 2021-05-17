@@ -24,32 +24,37 @@ app.config["MYSQL_DB"] = "ehrsystem"
 # initializing database as db
 db = MySQL(app)
 
-
+#Home page
 @app.route("/")
 def home():
 	return render_template("intro.html")
 
+#About us
 @app.route("/about")
 def about():
 	return render_template("about-us.html")
 
+#Contact us
 @app.route("/contact")
 def contact():
 	return render_template("contact.html")
 
-
+#Services for Pathologist
 @app.route("/services_patho")
 def services_patho():
 	return render_template("services_patho.html")
 
+#Services for Doctor
 @app.route("/services_doc")
 def services_doc():
 	return render_template("services_doc.html")
 
+#Services for Receptionist
 @app.route("/services_recep")
 def services_recep():
 	return render_template("services_recep.html")
 
+#Services for Patient
 @app.route("/services_pat")
 def services_pat():
 	return render_template("services_pat.html")
@@ -99,10 +104,10 @@ def redirecting(table):
 # checking and initialising user
 @app.before_request
 def before_request():
-    g.user = None
+    g.user = None   #Removing old user
 
     if "user" in session:
-        g.user = session["user"]
+        g.user = session["user"]  #initializing new user / retaining user 
 
 
 # logout
@@ -488,14 +493,20 @@ def path_addpat():
 
 @app.route("/path_addrep")
 def path_addrep():
-	return render_template("path_addrep.html")
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from pathologist where path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+    return render_template("path_addrep.html", userinfo=userdetail)
 
 #pathologist patient list
 @app.route("/path_patlist")
 def path_patlist():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add from patient p, session s, pathologist pa where p.p_id=s.p_id and s.path_id=pa.path_id and pa.path_id={g.user}"
+        query = f"select distinct p.p_fname,p.p_lname,p.p_phone,p.p_email,p.p_add, pa.path_name from patient p, session s, pathologist pa where p.p_id=s.p_id and s.path_id=pa.path_id and pa.path_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()

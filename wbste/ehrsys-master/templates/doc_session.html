@@ -94,13 +94,13 @@
           <th>Session</th>
         </tr>
         {% for user in sess %}
-        <tr  class="{{user[5]}}-row">
+        <tr>
             <td>{{loop.index}}</td>
             <td>{{user[0]}} {{user[1]}}</td>
             <td>{{user[2]}}</td>
             <td>{{user[3]}}</td>
             <td>{{user[4]}}</td>
-            <td><a href="/doc_pat/{{user[6]}}">{{user[5]}}</a></td>
+            <td  class="{{user[5]}}-row"><a href="/doc_pat/{{user[6]}}">{{user[5]}}</a></td>
         </tr> 
         {% endfor %}  
 
