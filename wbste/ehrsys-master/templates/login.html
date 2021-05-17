@@ -146,6 +146,14 @@
           required
         />
         <br />
+	{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+        		{% for msg in messages %}
+				<p>{{ msg }}</p>
+        		{% endfor %}
+    		{% endif %}
+	{% endwith %}
+
 
         <button type="submit" class="registerbtn">Login</button> <br />
         <span class="psw"><a href="#">Forgot password?</a></span>
