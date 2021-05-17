@@ -1,7 +1,9 @@
 from flask import Flask, redirect,g,request, url_for, session, render_template
 from flask_mysqldb import MySQL
+from flask import flash
 import os
 import MySQLdb
+
 
 # initialization of flask
 app = Flask(__name__)
@@ -72,9 +74,11 @@ def login():
 				session["user"] = request.form["userid"]
 				return redirect(url_for("redirecting", table=table))
 			else:
-				return "password incorrect"
+				flash("Incorrect Password")
+				return redirect(url_for("login"))
 		except:
-				return("invalid username")
+				flash("Invalid username")
+				return redirect(url_for("login"))
 	return render_template("login.html")
 
 
@@ -104,10 +108,11 @@ def before_request():
 # logout
 @app.route("/logout")
 def logout():
-    if g.user:
-        session.pop("user", None)
-        return redirect(url_for("login"))
-    return "you are already logged out"
+	if g.user:
+		session.pop("user", None)
+		flash("You have logged out successfully")
+		return redirect(url_for("login"))
+	return "you are already logged out"
 
 
 # -------------------------------------------------------------------------------------------------------------------------
