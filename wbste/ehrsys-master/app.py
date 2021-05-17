@@ -72,10 +72,13 @@ def login():
 				session["user"] = request.form["userid"]
 				return redirect(url_for("redirecting", table=table))
 			else:
-				return "password incorrect"
+				flash("Incorrect Password")
+				return redirect(url_for("login"))
 		except:
-				return("invalid username")
+				flash("Invalid username")
+				return redirect(url_for("login"))
 	return render_template("login.html")
+
 
 
 # redirecting after logging in
