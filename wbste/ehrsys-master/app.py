@@ -78,10 +78,10 @@ def login():
 				session["user"] = request.form["userid"]
 				return redirect(url_for("redirecting", table=table))
 			else:
-				flash("Incorrect Password")
+				flash("Incorrect Password!")
 				return redirect(url_for("login"))
 		except:
-				flash("Invalid username")
+				flash("Invalid username!")
 				return redirect(url_for("login"))
 	return render_template("login.html")
 
@@ -115,8 +115,9 @@ def before_request():
 def logout():
     if g.user:
         session.pop("user", None)
+        flash("You have logged out succesfully")
         return redirect(url_for("login"))
-    return "you are already logged out"
+    return render_template("login.html")
 
 
 # -------------------------------------------------------------------------------------------------------------------------
