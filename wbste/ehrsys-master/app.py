@@ -2,6 +2,7 @@ from flask import Flask, redirect,g,request, url_for, session, render_template
 from flask_mysqldb import MySQL
 import os
 import MySQLdb
+from flask import flash
 
 # initialization of flask
 app = Flask(__name__)
