@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
-{% block title %}Patient Details{% endblock %}
+{% block title %} Doctor home {% endblock %}
+
 {% block content %}
 
-<!-- START BLOCK CONSTANT -->
 <link rel="stylesheet" type="text/css" href="../static/other.css">
 <body>
 <div class="wrapper">
@@ -22,7 +22,6 @@
                     </li>
                 </ul>
             </li>
-
             <li>
                 <a href="{{url_for('doc_prof')}}">Profile</a>
             </li>           
@@ -59,100 +58,51 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                                            
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
+                            </li>                            
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
+                            </li>                            
                             <li class="nav-item">
                                 <a class="nav-link" href="/logout">Log out</a>
                             </li>
-                           
+                            <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-<!-- END BLOCK CONSTANT -->
- <div class="container">
-   
-  <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">We are seeing {{report[0][0]}}'s</h3>
-    <h4>Reports</h4>
-    <table class="table table-stripped table-bordered">
-        <tr>
-            <th>Date</th><td>{{report[0][3]}}</td>
-        </tr>
-        {% for user in report %}
-        <tr>
-          
-        
-              {% set values = user[2].split(";") %}
-              {% for elements in values %}
-              <tr>
-                  {% set element = elements.split(":") %}
-                  <td>{{element[0]}} </td><td>{{element[1]}}</td>
-              </tr>
-              {% endfor %}
-         
-        </tr>
-        {% endfor %}
-      </table>
-      <div class="col-md-12 bg-light text-right">
-        <button type="button" class="btn btn-info"><a href="doc_reportupdate">Edit</a></button>
-    </div>
-  </div>
-  <br />
-  <br />
-  <div>
-      <h4>Medicines</h4>
-    <table class="table table-stripped table-bordered">
-        <tr>
-          <th>Sr No.</th>
-          <th>Disease</th>
-          <th>Drug Name</th>
-          <th>Date</th>
-          <th>Time</th>
-        </tr>
-        {% for user in prescription %}
-        <tr>
-          <td>{{loop.index}}</td>
-          <td>{{user[2]}}</td>
-          <td>{{user[3]}}</td>
-          <td>{{user[4]}}</td>
-          <td>{{user[5]}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <div class="col-md-12 bg-light text-right">
-        <button type="button" class="btn btn-info"><a href="doc_mediupdate">Add</a></button>
-    </div>
-  </div>
-  <br />
-  <br />
-   <div>
-    <h4>Diet</h4>
-    <table class="table table-stripped table-bordered">
-        <tr>
-          <th>Sr No.</th>
-          <th>Dietitian Name</th>
-          <th>Food</th>
-        </tr>
-        {% for user in diet %}
-        <tr>
-          <td>{{loop.index}}</td>
-          <td>{{user[2]}}</td>
-          <td>{{user[3]}}</td>
-        </tr>
-        {% endfor %}
-      </table>
-      <div class="col-md-12 bg-light text-right">
-        <button type="button" class="btn btn-info"><a href="doc_mediupdate">Edit</a></button>
-    </div>
-   </div> 
 
-  </div>
-</div>
+            <form action="action_page.php">
+                <div class="container">
+                 
+                  <label for="fname"><b>Blood Pressure</b></label>
+                  <br>
+                  <input type="text" placeholder="Enter Blood Pressure Value" name="email" id="email" required>
+                  <br>
+              
+                  <label for="lname"><b>Blood Sugar</b></label>
+                  <br>
+                  <input type="text" placeholder="Enter Blood Sugar Value" name="email" id="email" required>
+                  <br>
 
- </div>
+                  <label for="lname"><b>Blood Group</b></label>
+                  <br>
+                  <input type="text" placeholder="Enter Blood Group" name="email" id="email" required>
+                  <br>
 
-    </div>
- </div>
+                  <label for="lname"><b>Haemoglobin</b></label>
+                  <br>
+                  <input type="text" placeholder="Enter Haemoglobin Value" name="email" id="email" required>
+                  <br>
 
+                  <button type="submit" class="registerbtn" href="          ">Save & Update</button>
+                </div>
+              </form> 
 {% endblock content %}
+
+</div>
+</div>
+</body>

@@ -349,6 +349,42 @@ def doc_pat(patid):
         return render_template("doc_pat.html", pid=pid, report=report, diet=diet, prescription=prescription)
     return "please login first"
 
+#Doctor report update
+@app.route("/doc_reportupdate")
+def doc_reportupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from doctor where dr_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("doc_reportupdate.html", userinfo=userdetail)
+    return "please login first"
+
+#Doctor diet update
+@app.route("/doc_dietupdate")
+def doc_dietupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from doctor where d.dr_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("doc_dietupdate.html", userinfo=userdetail)
+    return "please login first"
+
+#doctor medicine update
+@app.route("/doc_mediupdate")
+def doc_mediupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from doctor where d.dr_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("doc_mediupdate.html", userinfo=userdetail)
+    return "please login first"
+
 
 # -------------------------------------------------------------------------------------------------------------------------
 
