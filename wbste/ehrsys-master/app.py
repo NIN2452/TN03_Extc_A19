@@ -378,7 +378,7 @@ def pat_prof():
         return render_template("pat_prof.html", userinfo=userdetail)
     return "please login first"
 
-#patient update prifile
+#patient update profile
 @app.route("/pat_profupdate")
 def pat_profupdate():
     if g.user:
@@ -480,6 +480,18 @@ def path_prof():
         return render_template("path_prof.html", userinfo=userdetail)
     return "please login first"
 
+#Pathologist update profile
+@app.route("/path_profupdate")
+def path_profupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select path_id, path_name from pathologist where path_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        curser.close()
+        return render_template("path_profupdate.html", userinfo=userdetail)
+    return "please login first"
+
 #pathologist add patient
 @app.route("/path_addpat")
 def path_addpat():
@@ -492,6 +504,7 @@ def path_addpat():
         return render_template("path_addpat.html", userinfo=userdetail)
     return "please login first"
 
+#Pathologist add report
 @app.route("/path_addrep")
 def path_addrep():
     if g.user:
@@ -542,6 +555,18 @@ def rep_prof():
         return render_template("rep_prof.html", userinfo=userdetail)
     return "please login first"
 
+#Receptionist update profile
+@app.route("/rep_profupdate")
+def rep_profupdate():
+    if g.user:
+        curser = db.connection.cursor()
+        query = f"select * from receptionist where rec_id={g.user}"
+        result = curser.execute(query)
+        userdetail = curser.fetchall()
+        return render_template("rep_profupdate.html", userinfo=userdetail)
+    return "please login first"
+
+#Receptionist add patient
 @app.route("/rep_addpat")
 def rep_addpat():
 	return render_template("rep_addpat.html")
