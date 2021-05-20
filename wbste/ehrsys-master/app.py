@@ -350,7 +350,7 @@ def doc_pat(patid):
     return "please login first"
 
 #Doctor report update
-@app.route("/doc_reportupdate")
+@app.route("/doc_pat/doc_reportupdate")
 def doc_reportupdate():
     if g.user:
         curser = db.connection.cursor()
@@ -358,31 +358,31 @@ def doc_reportupdate():
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
-        return render_template("doc_reportupdate.html", userinfo=userdetail)
+        return render_template("doc_sess_reportupdate.html", userinfo=userdetail)
     return "please login first"
 
 #Doctor diet update
-@app.route("/doc_dietupdate")
+@app.route("/doc_pat/doc_dietupdate")
 def doc_dietupdate():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select * from doctor where d.dr_id={g.user}"
+        query = f"select * from doctor where dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
-        return render_template("doc_dietupdate.html", userinfo=userdetail)
+        return render_template("doc_sess_dietupdate.html", userinfo=userdetail)
     return "please login first"
 
 #doctor medicine update
-@app.route("/doc_mediupdate")
+@app.route("/doc_pat/doc_mediupdate")
 def doc_mediupdate():
     if g.user:
         curser = db.connection.cursor()
-        query = f"select * from doctor where d.dr_id={g.user}"
+        query = f"select * from doctor where dr_id={g.user}"
         result = curser.execute(query)
         userdetail = curser.fetchall()
         curser.close()
-        return render_template("doc_mediupdate.html", userinfo=userdetail)
+        return render_template("doc_sess_mediupdate.html", userinfo=userdetail)
     return "please login first"
 
 
@@ -402,7 +402,7 @@ def pat_home():
         return render_template("pat_home.html", userinfo=userdetail)
     return "please login first"
 
-# patient  profile page
+# patient profile page
 @app.route("/pat_prof")
 def pat_prof():
     if g.user:
@@ -415,15 +415,35 @@ def pat_prof():
     return "please login first"
 
 #patient update profile
-@app.route("/pat_profupdate")
+@app.route("/pat_profupdate", methods=["POST", "GET"])
 def pat_profupdate():
     if g.user:
-        curser = db.connection.cursor()
-        query = f"select p_id, p_fname, p_lname from patient where p_id={g.user}"
-        result = curser.execute(query)
-        userdetail = curser.fetchall()
-        curser.close()
-        return render_template("pat_profupdate.html", userinfo=userdetail)
+        if request.method=="POST":
+            email=request.form['email']
+            fname=request.form['fname']
+            lname=request.form['lname']
+            gender=request.form['gender']
+            dob=request.form['birthday']
+            phone=request.form['phone']
+            address=request.form['add']
+            city=request.form['city']
+            state=request.form['state']
+            country=request.form['country']
+            relname=request.form['relaname']
+            relaphone=request.form['relaphone']
+            curser = db.connection.cursor()
+            query = f"update patient set p_fname='{fname}', p_lname='{lname}', p_email='{email}', p_add='{address}', p_city='{city}', p_state='{state}', p_country='{country}', p_phone={phone}, p_gend='{gender}', p_dob='{dob}', p_relaname='{relname}', p_relaphone='{relaphone}' where p_id={g.user}"
+            curser.execute(query)
+            db.connection.commit()
+            curser.close()
+            return redirect(url_for("pat_prof"))
+        else :
+            curser = db.connection.cursor()
+            query = f"select * from patient where p_id={g.user}"
+            result = curser.execute(query)
+            userdetail = curser.fetchall()
+            curser.close()
+            return render_template("pat_profupdate.html", username=userdetail)
     return "please login first"
 
 # patient session

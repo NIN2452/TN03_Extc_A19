@@ -1,98 +1,133 @@
-{% extends "layout.html" %}
-{% block title %} Doctor home {% endblock %}
+{% extends "layout.html" %} {% block title %} Doctor home {% endblock %} {%
+block content %}
 
-{% block content %}
-
-<link rel="stylesheet" type="text/css" href="../static/other.css">
+<link rel="stylesheet" type="text/css" href="../static/other.css" />
 <body>
-<div class="wrapper">
+  <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Welcome Doc</h3>
-        </div>
+      <div class="sidebar-header">
+        <h3>{{userinfo[0][1]}}</h3>
+      </div>
 
-        <ul class="list-unstyled components">
-            <p>Hello there!</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="{{url_for('doc_home')}}">Doc Home</a>
-                    </li>
-                </ul>
-            </li>
+      <ul class="list-unstyled components">
+        <p>Hello there!</p>
+        <li class="active">
+          <a
+            href="#homeSubmenu"
+            data-toggle="collapse"
+            aria-expanded="false"
+            class="dropdown-toggle"
+            >Home</a
+          >
+          <ul class="collapse list-unstyled" id="homeSubmenu">
             <li>
-                <a href="{{url_for('doc_prof')}}">Profile</a>
-            </li>           
-            <li>
-                <a href="{{url_for('doc_addpat')}}">New Patient</a>
+              <a href="{{url_for('doc_home')}}">Doc Home</a>
             </li>
-            <li>
-                <a href="{{url_for('doc_patlist')}}">Patient list</a>
-            </li>
-            <li>
-                <a href="{{url_for('doc_appoint')}}">Apointments</a>
-            </li>
-            <li>
-                <a href="{{url_for('doc_session')}}">Sessions</a>
-            </li>
-        </ul>
+          </ul>
+        </li>
+        <li>
+          <a href="{{url_for('doc_prof')}}">Profile</a>
+        </li>
+        <li>
+          <a href="{{url_for('doc_addpat')}}">New Patient</a>
+        </li>
+        <li>
+          <a href="{{url_for('doc_patlist')}}">Patient list</a>
+        </li>
+        <li>
+          <a href="{{url_for('doc_appoint')}}">Apointments</a>
+        </li>
+        <li>
+          <a href="{{url_for('doc_session')}}">Sessions</a>
+        </li>
+      </ul>
     </nav>
 
-        <!-- Page Content  -->
-        <div id="content">
+    <!-- Page Content  -->
+    <div id="content">
+      <nav class="navbar navbar-inverse navbar-expand-lg">
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+          <i class="fas fa-align-left"></i>
+          <span></span>
+        </button>
 
-            <nav class="navbar navbar-inverse navbar-expand-lg ">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-                <i class="fas fa-align-left"></i>
-                <span></span>
-            </button>
+        <div class="container-fluid">
+          <img
+            class="logo-img"
+            src="{{url_for('static',filename='/images/logoehr.png')}}"
+            width="130"
+            height="130"
+            alt="align box"
+            align="CENTER"
+          />
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-align-justify"></i>
+          </button>
 
-                <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('about')}}"
+                  >About<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('contact')}}"
+                  >Contact<span class="sr-only">(current)</span></a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">Log out</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('home')}}"
+                  >Home <span class="sr-only">(current)</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-                <img class="logo-img" src="{{url_for('static',filename='/images/logoehr.png')}}" width="130" height="130" ALT="align box" ALIGN=CENTER>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
+      <form action="action_page.php">
+        <div class="container">
+          <label for="fname"><b>Dietian Name</b></label>
+          <br />
+          <input
+            type="text"
+            placeholder="Enter Dietian Name"
+            name="email"
+            id="email"
+            required
+          />
+          <br />
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('about')}}">About<span class="sr-only">(current)</span></a>
-                            </li>                            
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('contact')}}">Contact<span class="sr-only">(current)</span></a>
-                            </li>                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout">Log out</a>
-                            </li>
-                            <li class="nav-item active">
-                            <a class="nav-link" href="{{url_for('home')}}">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+          <label for="lname"><b>Food</b></label>
+          <br />
+          <input
+            type="text"
+            placeholder="Enter Food/Diet Plan"
+            name="email"
+            id="email"
+            required
+          />
+          <br />
 
-            <form action="action_page.php">
-                <div class="container">
-                 
-                  <label for="fname"><b>Dietian Name</b></label>
-                  <br>
-                  <input type="text" placeholder="Enter Dietian Name" name="email" id="email" required>
-                  <br>
-              
-                  <label for="lname"><b>Food</b></label>
-                  <br>
-                  <input type="text" placeholder="Enter Food/Diet Plan" name="email" id="email" required>
-                  <br>
-
-                  <button type="submit" class="registerbtn" href="          ">Save & Update</button>
-                </div>
-              </form> 
-{% endblock content %}
-
-</div>
-</div>
+          <button type="submit" class="registerbtn" href="          ">
+            Save & Update
+          </button>
+        </div>
+      </form>
+      {% endblock content %}
+    </div>
+  </div>
 </body>
